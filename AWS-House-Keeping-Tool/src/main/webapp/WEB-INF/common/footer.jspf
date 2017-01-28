@@ -1,6 +1,6 @@
 
 <footer class="footer">
-	<div>footer content</div>
+	<div>&copy; 2017 AWS house Keeping Tool</div>
 </footer>
 
 <script src="webjars/jquery/1.9.1/jquery.min.js"></script>

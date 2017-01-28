@@ -21,12 +21,11 @@
 
 	<nav class="navbar navbar-default">
 
-		<a href="/" class="navbar-brand">Brand</a>
+		<a href="#" class="navbar-brand">HK Tool</a>
 
 		<ul class="nav navbar-nav">
 			<li class="active"><a href="#">Home</a></li>
 			<li><a href="list-todos.do">Todos</a></li>
-			<li><a href="http://www.in28minutes.com">In28Minutes</a></li>
 		</ul>
 
 		<ul class="nav navbar-nav navbar-right">
@@ -48,7 +47,7 @@
 	</div>
 
 	<footer class="footer">
-		<div>footer content</div>
+		<div>&copy; 2017 AWS house Keeping Tool</div>
 	</footer>
 
 	<script src="webjars/jquery/1.9.1/jquery.min.js"></script>

@@ -1,4 +1,4 @@
-package com.awshousekeeping.login;
+package com.awshousekeeping.controller;
 
 import java.io.IOException;
 
@@ -8,13 +8,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.awshousekeeping.todo.TodoService;
+import com.awshousekeeping.services.LoginServiceImpl;
+import com.awshousekeeping.services.TodoServiceImpl;
 
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
 
-	private LoginService userValidationService = new LoginService();
-	private TodoService todoService = new TodoService();
+	private LoginServiceImpl userValidationService = new LoginServiceImpl();
+	private TodoServiceImpl todoService = new TodoServiceImpl();
 
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {

@@ -1,4 +1,4 @@
-package com.awshousekeeping.todo;
+package com.awshousekeeping.model;
 
 public class Todo {
 	private String name;

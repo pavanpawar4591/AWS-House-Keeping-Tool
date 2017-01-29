@@ -1,4 +1,4 @@
-package com.awshousekeeping.logout;
+package com.awshousekeeping.controller;
 
 import java.io.IOException;
 
@@ -8,12 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/logout.do")
-public class LogoutServlet extends HttpServlet {
+import com.awshousekeeping.services.TodoServiceImpl;
+
+@WebServlet(urlPatterns = "/list-todos.do")
+public class ListTodoServlet extends HttpServlet {
+
+	private TodoServiceImpl todoService = new TodoServiceImpl();
+
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
-		request.getSession().invalidate();
-		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
+		request.setAttribute("todos", todoService.retrieveTodos());
+		request.getRequestDispatcher("/WEB-INF/views/list-todos.jsp").forward(
 				request, response);
 	}
 }

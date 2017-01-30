@@ -1,14 +1,32 @@
-	<nav class="navbar navbar-default">
+<!-- start: MAIN NAVIGATION MENU -->
+<nav class="navbar navbar-default">
 
-		<a href="/" class="navbar-brand">Brand</a>
+	<a href="/" class="navbar-brand">Brand</a>
 
-		<ul class="nav navbar-nav">
-			<li class="active"><a href="#">Home</a></li>
-			<li><a href="list-todos.do">Todos</a></li>			
-		</ul>
+	<ul class="nav navbar-nav">
+		<li class="active"><a href="#">Home</a></li>
 
-		<ul class="nav navbar-nav navbar-right">
-			<li><a href="logout.do">Logout</a></li>
-		</ul>
+		<li><a href="User-List.do"><i class="fa fa-user"></i> <span
+				class="title">User Management</span><i class="icon-arrow"></i> </a></li>
 
-	</nav>
+		<li><a href="awsAccounts.html"><i class="fa fa-map-marker"></i>
+				<span class="title">AWS Accounts Management</span> </a></li>
+		</li>
+		<li><a href="Budget.html"><i class="fa fa-map-marker"></i> <span
+				class="title">Buget</span> </a></li>
+		<li><a href="bollingDashboard.html"><i
+				class="fa fa-bar-chart-o"></i> <span class="title">Billing
+					Dashbord</span> </a></li>
+		<li><a href="#"><i class="fa fa-bar-chart-o"></i> <span
+				class="title">Reposts</span> </a></li>
+
+	</ul>
+
+	<ul class="nav navbar-nav navbar-right">
+		<li><a href="logout.do">Logout</a></li>
+	</ul>
+	<!-- end: MAIN NAVIGATION MENU -->
+
+
+
+</nav>

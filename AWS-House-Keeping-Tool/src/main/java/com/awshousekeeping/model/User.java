@@ -3,15 +3,18 @@ package com.awshousekeeping.model;
 public class User {
 	
 	private int uid;
-	private String username;
-	private String firstname;
-	private String lastname;
+	private String userName;
+	private String firstName;
+	private String lastName;
 	private String password;
 	private String email;
 	private String date;
-	private String createon;
+	private String createOn;
 	private String role;
-	private int active;
+	private int isActive;
+	private String createdBy;
+	private String updatedOn;
+	private String updatedBy;
 	
 	public int getUid() {
 		return uid;
@@ -21,29 +24,7 @@ public class User {
 		this.uid = uid;
 	}
 
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
 	
-	public String getFirstname() {
-		return firstname;
-	}
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-	
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
 	public String getPassword() {
 		return password;
 	}
@@ -68,13 +49,6 @@ public class User {
 		this.date = date;
 	}
 
-	public String getCreateon() {
-		return createon;
-	}
-
-	public void setCreateon(String createon) {
-		this.createon = createon;
-	}
 
 	public String getRole() {
 		return role;
@@ -84,12 +58,69 @@ public class User {
 		this.role = role;
 	}
 	
-	public int getActive() {
-		return active;
+
+	public String getUserName() {
+		return userName;
 	}
 
-	public void setActive(int active) {
-		this.active = active;
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getCreateOn() {
+		return createOn;
+	}
+
+	public void setCreateOn(String createOn) {
+		this.createOn = createOn;
+	}
+
+	public int getIsActive() {
+		return isActive;
+	}
+
+	public void setIsActive(int isActive) {
+		this.isActive = isActive;
+	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getUpdatedOn() {
+		return updatedOn;
+	}
+
+	public void setUpdatedOn(String updatedOn) {
+		this.updatedOn = updatedOn;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
 	}
 	
 }

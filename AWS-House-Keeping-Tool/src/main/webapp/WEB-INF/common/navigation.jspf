@@ -13,10 +13,10 @@
 				<span class="title">AWS Accounts Management</span> </a></li>
 		</li>
 		<li><a href="Budget.html"><i class="fa fa-map-marker"></i> <span
-				class="title">Buget</span> </a></li>
+				class="title">Budget</span> </a></li>
 		<li><a href="bollingDashboard.html"><i
 				class="fa fa-bar-chart-o"></i> <span class="title">Billing
-					Dashbord</span> </a></li>
+					Dashboard</span> </a></li>
 		<li><a href="#"><i class="fa fa-bar-chart-o"></i> <span
 				class="title">Reposts</span> </a></li>
 

@@ -116,7 +116,7 @@ span.psw {
 				<span class="button-checkbox">
 					<button type="button" class="btn" data-color="info">Remember Me</button>
                     <input type="checkbox" name="remember_me" id="remember_me" checked="checked" class="hidden">
-					<a href="" class="btn btn-link pull-right">Forgot Password?</a>
+					<a href="" class="btn btn-link pull-right">Forgot Password?</a> 
 				</span>
 				<hr class="colorgraph">
 				<div class="row">

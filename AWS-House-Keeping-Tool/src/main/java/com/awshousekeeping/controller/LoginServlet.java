@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.awshousekeeping.services.impl.LoginServiceImpl;
 import com.awshousekeeping.services.impl.TodoServiceImpl;
+import com.awshousekeeping.utils.BusinessException;
 
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
@@ -28,16 +29,30 @@ public class LoginServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 
-		boolean isUserValid = userValidationService.isUserValid(name, password);
+		int role;
+		try {
+			role = userValidationService.isUserValid(name, password);
+			if (role == 1) {
+				request.getSession().setAttribute("name", name);
+				response.sendRedirect("list-todos.do");
 
-		if (isUserValid) {
-			request.getSession().setAttribute("name", name);
-			response.sendRedirect("list-todos.do");
-		} else {
-			request.setAttribute("errorMessage", "Invalid Credentials!");
+			} else if (role == 2) {
+				request.getSession().setAttribute("name", name);
+				response.sendRedirect("landing-admin.do");
+
+			} else {
+				request.setAttribute("errorMessage", "Invalid Credentials!");
+				request.getRequestDispatcher("/WEB-INF/views/login.jsp")
+						.forward(request, response);
+			}
+		} catch (BusinessException e) {
+
+			request.setAttribute("errorMessage", e.getCause());
 			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
 					request, response);
+
 		}
+
 	}
 
 }

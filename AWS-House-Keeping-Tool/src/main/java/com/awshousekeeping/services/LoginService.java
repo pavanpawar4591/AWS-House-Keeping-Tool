@@ -1,6 +1,8 @@
 package com.awshousekeeping.services;
 
+import com.awshousekeeping.utils.BusinessException;
+
 public interface LoginService {
-	public boolean isUserValid(String user, String password);
+	public int isUserValid(String user, String password) throws BusinessException;
 
 }

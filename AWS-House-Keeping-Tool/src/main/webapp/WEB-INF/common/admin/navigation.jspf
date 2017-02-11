@@ -6,12 +6,6 @@
 	<ul class="nav navbar-nav">
 		<li class="active"><a href="#">Home</a></li>
 
-		<li><a href="User-List.do"><i class="fa fa-user"></i> <span
-				class="title">User Management</span><i class="icon-arrow"></i> </a></li>
-
-		<li><a href="#"><i class="fa fa-map-marker"></i> <span
-				class="title">AWS Accounts Management</span> </a></li>
-		</li>
 		<li><a href="#"><i class="fa fa-map-marker"></i> <span
 				class="title">Budget</span> </a></li>
 

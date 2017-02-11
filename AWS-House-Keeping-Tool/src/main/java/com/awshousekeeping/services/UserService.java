@@ -15,7 +15,7 @@ public interface UserService {
 	public List<User> listAllUsers();
 	
 	
-	public boolean addUser(HttpServletRequest req) throws  BusinessException;
+	public boolean addUser(User user) throws  BusinessException;
 
 
 

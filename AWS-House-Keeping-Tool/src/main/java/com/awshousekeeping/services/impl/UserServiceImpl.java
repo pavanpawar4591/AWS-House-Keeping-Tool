@@ -1,9 +1,6 @@
 package com.awshousekeeping.services.impl;
 
-import java.util.Date;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 
 import com.awshousekeeping.dao.UserManagementDao;
 import com.awshousekeeping.dao.impl.UserManagementDaoImpl;
@@ -22,24 +19,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean addUser(HttpServletRequest request) throws BusinessException {
+	public boolean addUser(User user) throws BusinessException {
 
-		User user = new User();
-		// String newTodo = request.getParameter("todo");
-		user.setCreatedBy(" ");
-		user.setUpdatedBy("");
-		user.setCreateOn(new Date());
-		user.setUpdatedOn(new Date());
-		user.setEmail("");
-		user.setPassword("");
-		user.setIsActive(1);
-		user.setUserName( request.getParameter("userName"));
-		
-		user.setRole(1);
-		
-		userManagementDao.addUser(user);
-		
-		return true;
+		return userManagementDao.addUser(user);
+
 	}
 
 }

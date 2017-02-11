@@ -105,7 +105,7 @@ span.psw {
 		<form action="login.do" method="post">
 			<fieldset>
 				<h2>Sign In To Your Account</h2>
-				<h4>Please enter your name and password</h4>
+				<h4><font color="red">${errorMessage}</font></h4>
 				<hr class="colorgraph">
 				<div class="form-group">
                     <input type="text" name="name" id="name" class="form-control input-lg" placeholder="Username">

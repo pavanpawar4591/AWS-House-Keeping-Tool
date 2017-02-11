@@ -1,9 +1,10 @@
-package com.awshousekeeping.services;
+package com.awshousekeeping.services.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.awshousekeeping.model.Todo;
+import com.awshousekeeping.services.TodoService;
 
 public class TodoServiceImpl implements TodoService {
 	private static List<Todo> todos = new ArrayList<Todo>();

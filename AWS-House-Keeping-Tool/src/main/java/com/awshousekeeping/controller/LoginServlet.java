@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.awshousekeeping.services.LoginServiceImpl;
-import com.awshousekeeping.services.TodoServiceImpl;
+import com.awshousekeeping.services.impl.LoginServiceImpl;
+import com.awshousekeeping.services.impl.TodoServiceImpl;
 
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {

@@ -1,7 +1,9 @@
 package com.awshousekeeping.model;
 
+import java.util.Date;
+
 public class User {
-	
+
 	private int uid;
 	private String userName;
 	private String firstName;
@@ -9,13 +11,13 @@ public class User {
 	private String password;
 	private String email;
 	private String date;
-	private String createOn;
-	private String role;
+	private Date createOn;
+	private int role;
 	private int isActive;
 	private String createdBy;
-	private String updatedOn;
+	private Date updatedOn;
 	private String updatedBy;
-	
+
 	public int getUid() {
 		return uid;
 	}
@@ -24,7 +26,6 @@ public class User {
 		this.uid = uid;
 	}
 
-	
 	public String getPassword() {
 		return password;
 	}
@@ -40,7 +41,7 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
 	public String getDate() {
 		return date;
 	}
@@ -49,15 +50,13 @@ public class User {
 		this.date = date;
 	}
 
-
-	public String getRole() {
+	public int getRole() {
 		return role;
 	}
 
-	public void setRole(String role) {
+	public void setRole(int role) {
 		this.role = role;
 	}
-	
 
 	public String getUserName() {
 		return userName;
@@ -83,11 +82,11 @@ public class User {
 		this.lastName = lastName;
 	}
 
-	public String getCreateOn() {
+	public Date getCreateOn() {
 		return createOn;
 	}
 
-	public void setCreateOn(String createOn) {
+	public void setCreateOn(Date createOn) {
 		this.createOn = createOn;
 	}
 
@@ -107,11 +106,11 @@ public class User {
 		this.createdBy = createdBy;
 	}
 
-	public String getUpdatedOn() {
+	public Date getUpdatedOn() {
 		return updatedOn;
 	}
 
-	public void setUpdatedOn(String updatedOn) {
+	public void setUpdatedOn(Date updatedOn) {
 		this.updatedOn = updatedOn;
 	}
 
@@ -122,5 +121,5 @@ public class User {
 	public void setUpdatedBy(String updatedBy) {
 		this.updatedBy = updatedBy;
 	}
-	
+
 }

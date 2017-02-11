@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.awshousekeeping.model.Todo;
-import com.awshousekeeping.services.TodoServiceImpl;
+import com.awshousekeeping.services.impl.TodoServiceImpl;
 
 @WebServlet(urlPatterns = "/add-todo.do")
 public class AddTodoServlet extends HttpServlet {

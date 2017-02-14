@@ -41,7 +41,8 @@ public class AddUserServlet extends HttpServlet {
 			user.setIsActive(1);
 			user.setUserName(request.getParameter("userName"));
 			user.setRole(1);
-
+			user.setFirstName(request.getParameter("firstName"));
+			
 			boolean success = userService.addUser(user);
 
 			if (success) {

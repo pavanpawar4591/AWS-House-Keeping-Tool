@@ -8,6 +8,36 @@
 
 <style>
 
+#myelement
+{
+max-width: auto;
+height: 600px;
+font-size: 2em;
+font-weight: bold;
+margin: 50px auto;
+text-align: center;
+-webkit-animation: colorchange 5s linear 1s infinite alternate;
+animation: colorchange 5s linear 1s infinite alternate;
+}
+#myelement i{
+font-size: 50px;
+color: #fff;
+text-align: center;
+line-height: 400px;
+}
+
+@keyframes colorchange
+{
+0%   { background-color: #00F; /* from: blue */ }
+25%  { background-color: #F00; /* red        */ }
+50%  { background-color: #0F0; /* green      */ }
+75%  { background-color: #F0F; /* purple     */ }
+100% { background-color: #00F; /* to: blue   */ }
+}
+
+
+
+
 form {
     border: 3px solid #f1f1f1;
 }
@@ -131,7 +161,7 @@ span.psw {
 </div>
 
 </div>
-
+<div id="myelement"><i class="fa fa-diamond"></i> </div>
 	<footer class="footer">
 		<div>&copy; 2017 AWS house Keeping Tool</div>
 	</footer>

@@ -10,21 +10,20 @@ import com.awshousekeeping.utils.BusinessException;
 
 public class AccountServiceImpl implements AccountService {
 
-	private AccountDao AccountDao = new AccountDaoImpl(); 
+	private AccountDao accountDao = new AccountDaoImpl();
 
 	public List<Account> getAllAccount() throws BusinessException {
-		
-		return AccountDao.getAllAccount();
+
+		return accountDao.getAllAccount();
 	}
-	
+
 	@Override
 	public boolean addNewAWSAccount(Account a) throws BusinessException {
-		
-	
+
 		// TODO access key secret key ecrypt using aes 256
 		// TODO 20 input string 16 xx last four visible
-		// TODO call dao accountService 
-		return AccountDao.AddAccount(a);		
+		// TODO call dao accountService
+		return accountDao.addAccount(a);
 	}
-	 
+
 }

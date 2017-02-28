@@ -34,7 +34,7 @@
 			aria-expanded="false">Reposts <span class="caret"></span></a>
 			<ul class="dropdown-menu">
 				<li><a href="#">Sent Email</a></li>
-				<li><a href="#">user Login</a></li>
+				<li><a href="listawsIAM.do">user Login</a></li>
 				<li><a href="#">view all Alerts</a></li>
 				<li role="separator" class="divider"></li>
 				<li><a href="#">other</a></li>

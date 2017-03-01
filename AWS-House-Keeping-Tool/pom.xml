@@ -45,6 +45,21 @@
 			<version>1.11.18</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-iam -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-iam</artifactId>
+			<version>1.11.97</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-core -->
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-core</artifactId>
+			<version>1.11.97</version>
+		</dependency>
+
+
 
 		<dependency>
 			<groupId>mysql</groupId>

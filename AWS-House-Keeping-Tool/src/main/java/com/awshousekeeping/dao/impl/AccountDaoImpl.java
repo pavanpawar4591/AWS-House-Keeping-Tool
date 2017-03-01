@@ -1,5 +1,6 @@
 package com.awshousekeeping.dao.impl;
 
+<<<<<<< HEAD
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -75,10 +76,28 @@ public class AccountDaoImpl implements AccountDao {
 
 	@Override
 	public boolean updateAccount(Account a) throws BusinessException {
+=======
+import java.util.List;
+
+import com.awshousekeeping.dao.AccountDao;
+import com.awshousekeeping.model.Account;
+
+public class AccountDaoImpl implements AccountDao {
+
+	@Override
+	public List<Account> getAllAccount() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean addAccount(Account a) {
+>>>>>>> 97a96aebfc53b597482665910f1e73a390d11c3f
 		// TODO Auto-generated method stub
 		return false;
 	}
 
+<<<<<<< HEAD
 	@Override
 	public List<Account> getAllAccount() throws BusinessException {
 		// TODO Auto-generated method stub
@@ -129,3 +148,6 @@ public class AccountDaoImpl implements AccountDao {
 			return accounts;
 		}
 }
+=======
+}
+>>>>>>> 97a96aebfc53b597482665910f1e73a390d11c3f

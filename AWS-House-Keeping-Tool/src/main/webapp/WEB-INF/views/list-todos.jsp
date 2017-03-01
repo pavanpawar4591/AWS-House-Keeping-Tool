@@ -4,7 +4,7 @@
 <div class="container">
 	<H1>Welcome ${name}</H1>
 
-Welcome to AWS House Keeping tool
+Welcome to AWS House Keeping tool Super Admin
 
 </div>
 

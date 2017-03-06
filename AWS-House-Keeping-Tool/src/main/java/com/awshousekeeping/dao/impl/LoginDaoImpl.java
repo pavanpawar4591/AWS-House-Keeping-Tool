@@ -23,6 +23,7 @@ public class LoginDaoImpl implements LoginDao {
 				+ "' and password='" + password + "'";
 		PreparedStatement ps;
 		try {
+			
 			ps = (PreparedStatement) con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 

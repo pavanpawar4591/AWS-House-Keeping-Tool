@@ -5,7 +5,7 @@ import com.amazonaws.services.identitymanagement.model.GetUserRequest;
 import com.amazonaws.services.identitymanagement.model.GetUserResult;
 import com.amazonaws.services.identitymanagement.model.ListUsersResult;
 import com.awshousekeeping.services.AwsIamUserService;
-import com.awshousekeeping.utils.AWSClientBuilder;
+import com.awshousekeeping.utils.AllAWSClientBuilder;
 import com.awshousekeeping.utils.BusinessException;
 
 public class AwsIamUserServiceImpl implements AwsIamUserService {
@@ -14,7 +14,7 @@ public class AwsIamUserServiceImpl implements AwsIamUserService {
 	public ListUsersResult getAllIAMUSers(int acountID) throws Exception {
 
 		try {
-			AmazonIdentityManagement iamClient = AWSClientBuilder
+			AmazonIdentityManagement iamClient = AllAWSClientBuilder
 					.getIAMClient(acountID);
 
 			GetUserRequest getusereq = new GetUserRequest();

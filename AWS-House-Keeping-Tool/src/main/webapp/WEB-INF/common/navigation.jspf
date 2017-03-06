@@ -21,7 +21,7 @@
 			aria-expanded="false">Billing Dashboard <span class="caret"></span></a>
 			<ul class="dropdown-menu">
 				<li><a href="#">S3 Security</a></li>
-				<li><a href="#">EC2 Security</a></li>
+				<li><a href="listawsec2.do">EC2 Security</a></li>
 				<li><a href="#">EBS</a></li>
 				<li role="separator" class="divider"></li>
 				<li><a href="#">other</a></li>

@@ -8,7 +8,6 @@
 	<table class="table table-striped">
 		<caption>Your Account-List</caption>
 		<thead>
-
 			<th>accountId</th>
 			<th>createdOn</th>
 			<th>createdBy</th>
@@ -25,19 +24,41 @@
 			<th>accountType</th>
 			<th>hspsDescription</th>
 			<th>businessUnit</th>
-			<th>AWSAccountNumber</th>
-			<th>AWSAccountAlias</th>
-			<th>AWSAccessKey</th>
-			<th>AWSSecretKey</th>
-
+			<th>awsAccountNumber</th>
+			<th>awsAccountAlias</th>
+			<th>awsAccessKey</th>
+			<th>awsSecretKey</th>
+			<th>awsAccessKeyXXXX</th>
+			<th>awsSecretKeyXXXX</th>
 		</thead>
 		<tbody>
 			<c:forEach items="${accounts}" var="account">
 				<tr>
+					<td>${account.accountId}</td>
+					<td>${account.createdOn}</td>
+					<td>${account.createdBy}</td>
+					<td>${account.updatedOn}</td>
+					<td>${account.updatedBy}</td>
+					<td>${account.hspsId}</td>
+					<td>${account.projectExpireDate}</td>
+					<td>${account.freeTrialExpireDate}</td>
+					<td>${account.awsAccountOwnerName}</td>
+					<td>${account.hspsExpireDate}</td>
+					<td>${account.emailIdOfOwner}</td>
 					<td>${account.projectName}</td>
 					<td>${account.projectId}</td>
+					<td>${account.accountType}</td>
+					<td>${account.hspsDescription}</td>
+					<td>${account.businessUnit}</td>
+					<td>${account.awsAccountNumber}</td>
+					<td>${account.awsAccountAlias}</td>
+					<td>${account.awsAccessKey}</td>
+					<td>${account.awsSecretKey}</td>
+					<td>${account.awsAccessKeyXXXX}</td>
+					<td>${account.awsSecretKeyXXXX}</td>
+
 					<td>&nbsp;&nbsp;<a class="btn btn-danger"
-						href="delete-user.do?todo=${account.projectName}&=$porjectId{account.projectId}">Delete</a></td>
+						href="delete-account.do?todo=${account.projectName}&=$porjectId{account.projectId}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -46,7 +67,7 @@
 	<p>
 		<font color="red">${errorMessage}</font>
 	</p>
-	<a class="btn btn-success" href="add-user.do">Add New User</a>
+	<a class="btn btn-success" href="add-account.do">Add New Account</a>
 </div>
 
 <%@ include file="../common/footer.jspf"%>

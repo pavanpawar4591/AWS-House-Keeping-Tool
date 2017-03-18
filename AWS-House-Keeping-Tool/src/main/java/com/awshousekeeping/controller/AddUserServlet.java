@@ -32,17 +32,17 @@ public class AddUserServlet extends HttpServlet {
 
 			User user = new User();
 			// String newTodo = request.getParameter("todo");
-			user.setCreatedBy(" ");
-			user.setUpdatedBy("");
+			user.setCreatedBy(request.getParameter("createdBy"));
+			user.setUpdatedBy(request.getParameter("updatedBy"));
 			user.setCreateOn(new Date());
 			user.setUpdatedOn(new Date());
-			user.setEmail("");
+			user.setEmail(request.getParameter("email"));
 			user.setPassword(request.getParameter("password"));
-			user.setIsActive(1);
+			//user.setIsActive(request.getParameter("isActive"));
 			user.setUserName(request.getParameter("userName"));
-			user.setRole(1);
+			//user.setRole(request.getParameter("role"));
 			user.setFirstName(request.getParameter("firstName"));
-			
+			user.setLastName(request.getParameter("lastName"));
 			//TODO continue Complte all fields................................................
 			
 			boolean success = userService.addUser(user);

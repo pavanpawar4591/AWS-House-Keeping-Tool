@@ -7,10 +7,11 @@
 	<table class="table table-striped">
 		<caption>All Users</caption>
 		<thead>
+
 			<th>ID</th>
 			<th>User Name</th>
 			<th>First Name</th>
-			<th>Last Name</th>		
+			<th>Last Name</th>
 			<th>Password</th>
 			<th>Email</th>
 			<th>CreateOn</th>
@@ -19,7 +20,7 @@
 			<th>CreateBy</th>
 			<th>UpdatedOn</th>
 			<th>UpdatedBy</th>
-			<th></th>
+
 		</thead>
 		<tbody>
 			<c:forEach items="${users}" var="user">
@@ -37,7 +38,7 @@
 					<td>${user.updatedOn}</td>
 					<td>${user.updatedBy}</td>
 					<td>&nbsp;&nbsp;<a class="btn btn-danger"
-						href="delete-user.do?todo=${user.firstName}&lastname=${user.lastName}">Delete</a></td>
+						href="delete-user.do?&firstName=${user.firstName}&lastname=${user.lastName}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

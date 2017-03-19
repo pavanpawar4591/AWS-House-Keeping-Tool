@@ -84,8 +84,7 @@ public class UserManagementDaoImpl implements UserManagementDao {
 				user.setLastName(rs.getString("last_name"));
 				user.setPassword("******");
 				user.setEmail(rs.getString("email"));
-
-				user.setRole(1);
+				user.setRole(3);
 				user.setUpdatedBy("updated_by");
 				user.setUpdatedOn(new Date());
 				user.setCreatedBy("created_by");

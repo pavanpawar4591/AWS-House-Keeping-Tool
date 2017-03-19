@@ -149,3 +149,14 @@
 	section{
 		padding-left: 15px;
 	}
+	
+	.container {
+    padding: 16px;
+}
+	
+	footer {
+    position: fixed;
+    height: 100px;
+    bottom: 0;
+    width: 100%;
+}

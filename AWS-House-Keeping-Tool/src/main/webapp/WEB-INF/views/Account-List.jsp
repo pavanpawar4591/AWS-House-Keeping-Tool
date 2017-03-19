@@ -58,7 +58,7 @@
 					<td>${account.awsSecretKeyXXXX}</td>
 
 					<td>&nbsp;&nbsp;<a class="btn btn-danger"
-						href="delete-account.do?todo=${account.projectName}&=$porjectId{account.projectId}">Delete</a></td>
+						href="delete-account.do?&projectName=${account.projectName}&porjectId=${account.projectId}">Delete</a></td>
 				</tr>
 			</c:forEach>
 		</tbody>

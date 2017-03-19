@@ -35,9 +35,34 @@ public class AddAccountServlet extends HttpServlet {
 			Account account = new Account();
 			// String newTodo = request.getParameter("todo");
 			
+			
+			
+			
+			account.setAccountId(Integer.parseInt(request.getParameter("accountId")));
+			account.setProjectId(Integer.parseInt(request.getParameter("projectId")));
 			account.setProjectName(request.getParameter("projectName"));
 			account.setAwsAccountAlias(request.getParameter("awsAccountAlias"));
+			account.setAwsAccountOwnerName(request.getParameter("awsAccountOwnerName"));
+			account.setEmailIdOfOwner(request.getParameter("emailIdOfOwner"));
 			account.setAccountType(request.getParameter("accountType"));
+			account.setCreatedOn(new Date());
+			account.setCreatedBy(request.getParameter("createdBy"));
+			account.setUpdatedOn(new Date());
+			account.setUpdatedBy(request.getParameter("updatedBy"));
+			account.setHspsId(Integer.parseInt(request.getParameter("hspsId")));
+			account.setHspsExpireDate(new Date());
+			account.setProjectExpireDate(new Date());
+			account.setFreeTrialExpireDate(new Date());
+			account.setHspsDescription(request.getParameter("hspsDescription"));
+			account.setBusinessUnit(Integer.parseInt(request.getParameter("businessUnit")));
+			account.setAwsAccountNumber(Integer.parseInt(request.getParameter("awsAccountNumber")));
+			account.setAwsAccessKey(Integer.parseInt(request.getParameter("awsAccessKey")));
+			account.setAwsSecretKey(Integer.parseInt(request.getParameter("awsSecretKey")));
+			account.setAwsAccessKeyXXXX(request.getParameter("awsAccessKeyXXXX"));
+			account.setAwsSecretKeyXXXX(request.getParameter("awsSecretKeyXXXX"));
+			
+			
+
 			
 			//TODO continue Complte all fields................................................
 			

@@ -1,12 +1,12 @@
 package com.awshousekeeping.model;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 public class Budget {
 
 	private int budgetId;
-	private Timestamp budgetStartDate;
-	private Timestamp budgetEndDate;
+	private Date budgetStartDate;
+	private Date budgetEndDate;
 	private double budgetAmount;
 	private String budgetDescription;
 	private String budgetConditionalOperator;
@@ -20,19 +20,19 @@ public class Budget {
 		this.budgetId = budgetId;
 	}
 
-	public Timestamp getBudgetStartDate() {
+	public Date getBudgetStartDate() {
 		return budgetStartDate;
 	}
 
-	public void setBudgetStartDate(Timestamp budgetStartDate) {
+	public void setBudgetStartDate(Date budgetStartDate) {
 		this.budgetStartDate = budgetStartDate;
 	}
 
-	public Timestamp getBudgetEndDate() {
+	public Date getBudgetEndDate() {
 		return budgetEndDate;
 	}
 
-	public void setBudgetEndDate(Timestamp budgetEndDate) {
+	public void setBudgetEndDate(Date budgetEndDate) {
 		this.budgetEndDate = budgetEndDate;
 	}
 

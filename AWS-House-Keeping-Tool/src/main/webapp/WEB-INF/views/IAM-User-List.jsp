@@ -7,15 +7,17 @@
 		<font color="red">${errorMessage}</font>
 	</p>
 
-	
 
 
-	<table class="table table-striped">
+
+	<table class="table table-striped table-bordered table-hover">
 		<caption>All Users</caption>
 		<thead>
-			<th>UserName</th>
-			<th>CreateDate</th>
-			<th>PasswordLastUsed</th>
+			<tr class="info">
+				<th>User Name</th>
+				<th>Create Date</th>
+				<th>Password Last Used</th>
+			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${users}" var="user">

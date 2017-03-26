@@ -29,7 +29,6 @@ public class AddAccountServlet extends HttpServlet {
 		try {
 
 			Account account = new Account();
-			// String newTodo = request.getParameter("todo");
 
 			account.setAccountId(Integer.parseInt(request.getParameter("accountId")));
 			account.setProjectId(Integer.parseInt(request.getParameter("projectId")));

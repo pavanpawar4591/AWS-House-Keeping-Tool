@@ -39,11 +39,11 @@
 			<label>Account Id</label> <input name="accountId" type="text"
 				class="form-control" />
 		</fieldset>
-</div>
 
-<input name="add" type="submit" class="btn btn-success" value="Submit" />
-<button type="button" class="btn btn-danger">Cancel</button>
-</form>
+
+		<input name="add" type="submit" class="btn btn-success" value="Submit" />
+		<button type="button" class="btn btn-danger">Cancel</button>
+	</form>
 </div>
 
 <%@ include file="../common/footer.jspf"%>

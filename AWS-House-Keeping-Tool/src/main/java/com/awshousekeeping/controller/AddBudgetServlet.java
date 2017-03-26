@@ -28,7 +28,6 @@ public class AddBudgetServlet extends HttpServlet {
 		try {
 
 			Budget budget = new Budget();
-			// String newTodo = request.getParameter("todo");
 
 			budget.setBudgetId(Integer.parseInt(request.getParameter("budgetId")));
 			budget.setBudgetStartDate(new Date());

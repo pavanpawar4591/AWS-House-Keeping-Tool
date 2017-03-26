@@ -4,23 +4,23 @@
 <div class="container">
 	<H6>Welcome ${name}</H6>
 
-	<table class="table table-striped">
+	<table class="table table-striped table-bordered table-hover">
 		<caption>All Users</caption>
 		<thead>
-
+		<tr class="info">
 			<th>ID</th>
 			<th>User Name</th>
 			<th>First Name</th>
 			<th>Last Name</th>
 			<th>Password</th>
 			<th>Email</th>
-			<th>CreateOn</th>
+			<th>Create On</th>
 			<th>Role</th>
-			<th>isActive</th>
-			<th>CreateBy</th>
-			<th>UpdatedOn</th>
-			<th>UpdatedBy</th>
-
+			<th>Is Active</th>
+			<th>Create By</th>
+			<th>Updated On</th>
+			<th>Updated By</th>
+		</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${users}" var="user">

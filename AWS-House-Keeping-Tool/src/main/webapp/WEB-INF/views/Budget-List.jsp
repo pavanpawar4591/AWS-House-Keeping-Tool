@@ -4,18 +4,18 @@
 <div class="container">
 	<H6>Welcome ${name}</H6>
 
-	<table class="table table-striped">
+	<table class="table table-striped table-bordered table-hover">
 		<caption>All Budgets</caption>
 		<thead>
-
+		<tr class="info">
 			<th>Budget Id</th>
 			<th>Budget Start Date</th>
-			<th>budgetEndDate</th>
-			<th>budgetAmount</th>
-			<th>budgetDescription</th>
-			<th>budgetConditionalOperator</th>
-			<th>accountId</th>
-
+			<th>Budget End Date</th>
+			<th>Budget Amount</th>
+			<th>Budget Description</th>
+			<th>Budget Conditional Operator</th>
+			<th>Account Id</th>
+		</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${budgets}" var="budget">

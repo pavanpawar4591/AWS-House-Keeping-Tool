@@ -5,31 +5,33 @@
 	<H1>Welcome ${firstName}</H1>
 
 
-	<table class="table table-striped">
+	<table class="table table-striped table-bordered table-hover">
 		<caption>Your Account-List</caption>
 		<thead>
-			<th>accountId</th>
-			<th>createdOn</th>
-			<th>createdBy</th>
-			<th>updatedOn</th>
-			<th>updatedBy</th>
-			<th>hspsId</th>
-			<th>projectExpireDate</th>
-			<th>freeTrialExpireDate</th>
-			<th>awsAccountOwnerName</th>
-			<th>hspsExpireDate</th>
-			<th>emailIdOfOwner</th>
-			<th>projectName</th>
-			<th>projectId</th>
-			<th>accountType</th>
-			<th>hspsDescription</th>
-			<th>businessUnit</th>
-			<th>awsAccountNumber</th>
-			<th>awsAccountAlias</th>
-			<th>awsAccessKey</th>
-			<th>awsSecretKey</th>
+		<tr class="info">
+			<th>Account Id</th>
+			<th>Created On</th>
+			<th>Created By</th>
+			<th>Updated On</th>
+			<th>Updated By</th>
+			<th>hsps Id</th>
+			<th>Project Expire Date</th>
+			<th>Free Trial Expire Date</th>
+			<th>AWS Account Owner Name</th>
+			<th>hsps Expire Date</th>
+			<th>Email Id Of Owner</th>
+			<th>Projec tName</th>
+			<th>Project Id</th>
+			<th>Account Type</th>
+			<th>hsps Description</th>
+			<th>Business Unit</th>
+			<th>AWS Account Number</th>
+			<th>AWS Account Alias</th>
+			<th>AWS Access Key</th>
+			<th>AWS Secret Key</th>
 			<th>awsAccessKeyXXXX</th>
 			<th>awsSecretKeyXXXX</th>
+		</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${accounts}" var="account">

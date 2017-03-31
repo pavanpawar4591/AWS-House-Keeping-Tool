@@ -65,7 +65,7 @@ public class UserManagementDaoImpl implements UserManagementDao {
 
 	@Override
 	public List<User> getAllUser() {
-		List<User> users = new ArrayList();
+		List<User> users = new ArrayList<User>();
 
 		Connection con = DBConnect.getConnecttion();
 		String sql = "select * from user";

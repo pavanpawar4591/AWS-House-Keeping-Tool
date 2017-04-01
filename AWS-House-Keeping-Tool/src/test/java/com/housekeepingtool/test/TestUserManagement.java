@@ -4,8 +4,12 @@ import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -68,5 +72,31 @@ public class TestUserManagement {
 		List<User> ulist = new ArrayList<>();
 		ulist.add(getDummyUser());
 		return ulist;
+	}
+
+	void a()
+	{
+		Scanner in = new Scanner(System.in);
+        long a = in.nextLong();
+        long b = in.nextLong();
+        long c = in.nextLong();
+        long d = in.nextLong();
+        long e = in.nextLong();
+        long  max;
+        long  min;
+        long sum=a+b+c+d+e;
+        List<Long> input =new ArrayList<>();
+        input.add(a);
+        input.add(b);
+        input.add(c);
+        input.add(d);
+        input.add(e);
+       
+        
+        Collections.sort(input);
+        System.out.println((sum-input.get(0))+" "+(sum-input.get(4)));
+        
+        
+        
 	}
 }

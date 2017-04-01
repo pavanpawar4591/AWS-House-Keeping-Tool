@@ -11,16 +11,15 @@
 	<c:forEach var="ec2" items="${ec2instances}">
 
 
-
-
-
-		<table class="table table-striped">
+		<table class="table table-striped table-bordered table-hover">
 			<caption>Region: ${ec2.key}</caption>
 			<thead>
-				<th>InstanceId</th>
-				<th>InstanceType</th>
-				<th>LaunchTime</th>
-				<th>publicIP</th>
+				<tr class="info">
+					<th>Instance Id</th>
+					<th>Instance Type</th>
+					<th>Launch Time</th>
+					<th>Public IP</th>
+				</tr>
 			</thead>
 			<tbody>
 				<c:forEach var="instance" items="${ec2.value}">

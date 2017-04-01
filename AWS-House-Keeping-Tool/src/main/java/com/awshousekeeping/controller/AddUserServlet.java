@@ -19,45 +19,40 @@ public class AddUserServlet extends HttpServlet {
 
 	private UserService userService = new UserServiceImpl();
 
-	public void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/add-user.jsp").forward(
-				request, response);
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/views/add-user.jsp").forward(request, response);
 	}
 
-	public void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		try {
 
 			User user = new User();
 			// String newTodo = request.getParameter("todo");
-			user.setCreatedBy(" ");
-			user.setUpdatedBy("");
+
+			user.setCreatedBy(request.getParameter("createdBy"));
+			user.setUpdatedBy(request.getParameter("updatedBy"));
 			user.setCreateOn(new Date());
 			user.setUpdatedOn(new Date());
-			user.setEmail("");
+			user.setEmail(request.getParameter("email"));
 			user.setPassword(request.getParameter("password"));
-			user.setIsActive(1);
+			user.setIsActive(Integer.parseInt(request.getParameter("isActive")));
 			user.setUserName(request.getParameter("userName"));
-			user.setRole(1);
+			user.setRole(Integer.parseInt(request.getParameter("role")));
 			user.setFirstName(request.getParameter("firstName"));
-			
-			//TODO continue Complte all fields................................................
-			
+			user.setLastName(request.getParameter("lastName"));
+
 			boolean success = userService.addUser(user);
 
 			if (success) {
 				response.sendRedirect("User-List.do");
 			} else {
 				request.setAttribute("errorMessage", "Error while Adding user");
-				request.getRequestDispatcher("/WEB-INF/views/add-user.jsp")
-						.forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/views/add-user.jsp").forward(request, response);
 			}
 		} catch (BusinessException e) {
 			request.setAttribute("errorMessage", e.getCause());
-			request.getRequestDispatcher("/WEB-INF/views/add-user.jsp")
-					.forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/add-user.jsp").forward(request, response);
 
 		}
 

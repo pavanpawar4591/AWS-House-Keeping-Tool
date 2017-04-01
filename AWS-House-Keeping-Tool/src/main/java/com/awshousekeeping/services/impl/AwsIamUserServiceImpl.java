@@ -22,6 +22,7 @@ public class AwsIamUserServiceImpl implements AwsIamUserService {
 			return iamClient.listUsers();
 
 		} catch (Exception e) {
+			e.printStackTrace();
 			throw new BusinessException("error at get user", e);
 		}
 

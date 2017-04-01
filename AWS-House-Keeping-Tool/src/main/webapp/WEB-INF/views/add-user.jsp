@@ -53,6 +53,7 @@
 				placeholder="Password">
 		</div>
 		<input name="add" type="submit" class="btn btn-success" value="Submit" />
+		<button type="button" class="btn btn-danger">Cancel</button>
 	</form>
 </div>
 

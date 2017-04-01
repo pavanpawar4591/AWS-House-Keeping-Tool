@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.awshousekeeping.model.Todo;
 import com.awshousekeeping.services.impl.TodoServiceImpl;
 
-@WebServlet(urlPatterns = "/delete-todo.do")
+@WebServlet(urlPatterns = "/delete-user.do")
 public class DeleteTodoServlet extends HttpServlet {
 
 	private TodoServiceImpl todoService = new TodoServiceImpl();
@@ -20,6 +20,6 @@ public class DeleteTodoServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		todoService.deleteTodo(new Todo(request.getParameter("todo"), request
 				.getParameter("category")));
-		response.sendRedirect("list-todos.do");
+		response.sendRedirect("delete-user.do");
 	}
 }

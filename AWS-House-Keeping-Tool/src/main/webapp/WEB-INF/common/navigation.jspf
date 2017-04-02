@@ -27,7 +27,7 @@
 					<li><a href="listawsec2.do">EC2 Security</a></li>
 					<li><a href="#">EBS</a></li>
 					<li role="separator" class="divider"></li>
-					<li><a href="#">other</a></li>
+					<li><a href="billing-dashboard.do">other</a></li>
 				</ul></li>
 
 

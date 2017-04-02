@@ -1,22 +1,23 @@
+package com.awshousekeeping.services.impl;
 import java.util.Properties;
 import javax.mail.*;
 import javax.mail.internet.*;
 
 public class AmazonSESSample {
 
-    static final String FROM = "anuja.chivate67@gmail.com";   // Replace with your "From" address. This address must be verified.
-    static final String TO = "pavanpawar4591@gmail.com";  // Replace with a "To" address. If your account is still in the 
+    static final String FROM = "";   // Replace with your "From" address. This address must be verified.
+    static final String TO = "";  // Replace with a "To" address. If your account is still in the 
                                                        // sandbox, this address must be verified.
     
     static final String BODY = "This email was sent through the Amazon SES SMTP interface by using Java.";
     static final String SUBJECT = "Amazon SES test (SMTP interface accessed using Java)";
     
     // Supply your SMTP credentials below. Note that your SMTP credentials are different from your AWS credentials.
-    static final String SMTP_USERNAME = "AKIAI6UWTQOTU2AUINMQ";  // Replace with your SMTP username.
-    static final String SMTP_PASSWORD = "AlQhcIMyNPoAupaYtoCxQ2HwyR8kUU2YJoDPUCPu1iUl";  // Replace with your SMTP password.
+    static final String SMTP_USERNAME = "";  // Replace with your SMTP username.
+    static final String SMTP_PASSWORD = "";  // Replace with your SMTP password.
     
-    // Amazon SES SMTP host name. This example uses the US West (Oregon) region.
-    static final String HOST = "email-smtp.us-east-1.amazonaws.com";    
+    // Amazon SES SMTP host name.
+    static final String HOST = "";    
   
     	
     // The port you will connect to on the Amazon SES SMTP endpoint. We are choosing port 25 because we will use

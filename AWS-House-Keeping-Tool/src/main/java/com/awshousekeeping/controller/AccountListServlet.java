@@ -18,7 +18,7 @@ public class AccountListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
-		request.setAttribute("account", accountServiceImpl.listAllAccounts());
+		request.setAttribute("accounts", accountServiceImpl.listAllAccounts());
 		request.getRequestDispatcher("/WEB-INF/views/Account-List.jsp").forward(request, response);
 	}
 

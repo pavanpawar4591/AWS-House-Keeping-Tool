@@ -12,46 +12,53 @@ import javax.servlet.http.HttpServletResponse;
 import com.awshousekeeping.model.Account;
 import com.awshousekeeping.services.AccountService;
 import com.awshousekeeping.services.impl.AccountServiceImpl;
-import com.awshousekeeping.utils.BusinessException;
 
 @WebServlet(urlPatterns = "/add-account.do")
-
 public class AddAccountServlet extends HttpServlet {
 
 	private AccountService accountService = new AccountServiceImpl();
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/add-account.jsp").forward(request, response);
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/views/add-account.jsp").forward(
+				request, response);
 	}
 
-	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		try {
 
 			Account account = new Account();
 
-			account.setAccountId(Integer.parseInt(request.getParameter("accountId")));
-			account.setProjectId(Integer.parseInt(request.getParameter("projectId")));
+			// account.setAccountId(Integer.parseInt(request.getParameter("accountId")));
+			account.setProjectId(request.getParameter("projectId"));
 			account.setProjectName(request.getParameter("projectName"));
 			account.setAwsAccountAlias(request.getParameter("awsAccountAlias"));
-			account.setAwsAccountOwnerName(request.getParameter("awsAccountOwnerName"));
+			account.setAwsAccountOwnerName(request
+					.getParameter("awsAccountOwnerName"));
 			account.setEmailIdOfOwner(request.getParameter("emailIdOfOwner"));
 			account.setAccountType(request.getParameter("accountType"));
 			account.setCreatedOn(new Date());
-			account.setCreatedBy(request.getParameter("createdBy"));
+			account.setCreatedBy(request.getSession().getAttribute("name")
+					.toString());
 			account.setUpdatedOn(new Date());
-			account.setUpdatedBy(request.getParameter("updatedBy"));
-			account.setHspsId(Integer.parseInt(request.getParameter("hspsId")));
+			account.setUpdatedBy(request.getSession().getAttribute("name")
+					.toString());
+			account.setHspsId(request.getParameter("hspsId"));
 			account.setHspsExpireDate(new Date());
 			account.setProjectExpireDate(new Date());
 			account.setFreeTrialExpireDate(new Date());
 			account.setHspsDescription(request.getParameter("hspsDescription"));
-			account.setBusinessUnit(Integer.parseInt(request.getParameter("businessUnit")));
-			account.setAwsAccountNumber(Integer.parseInt(request.getParameter("awsAccountNumber")));
-			account.setAwsAccessKey(Integer.parseInt(request.getParameter("awsAccessKey")));
-			account.setAwsSecretKey(Integer.parseInt(request.getParameter("awsSecretKey")));
-			account.setAwsAccessKeyXXXX(request.getParameter("awsAccessKeyXXXX"));
-			account.setAwsSecretKeyXXXX(request.getParameter("awsSecretKeyXXXX"));
+			account.setBusinessUnit(request.getParameter("businessUnit"));
+			account.setAwsAccountNumber(request
+					.getParameter("awsAccountNumber"));
+			account.setAwsAccessKey(request.getParameter("awsAccessKey"));
+			account.setAwsSecretKey(request.getParameter("awsSecretKey"));
+			account.setAwsAccessKeyXXXX(request
+					.getParameter("awsAccessKeyXXXX"));
+			account.setAwsSecretKeyXXXX(request
+					.getParameter("awsSecretKeyXXXX"));
 
 			// TODO continue Complte all
 			// fields................................................
@@ -61,12 +68,15 @@ public class AddAccountServlet extends HttpServlet {
 			if (success) {
 				response.sendRedirect("Account-List.do");
 			} else {
-				request.setAttribute("errorMessage", "Error while Adding account");
-				request.getRequestDispatcher("/WEB-INF/views/add-account.jsp").forward(request, response);
+				request.setAttribute("errorMessage",
+						"Error while Adding account");
+				request.getRequestDispatcher("/WEB-INF/views/add-account.jsp")
+						.forward(request, response);
 			}
-		} catch (BusinessException e) {
+		} catch (Exception e) {
 			request.setAttribute("errorMessage", e.getCause());
-			request.getRequestDispatcher("/WEB-INF/views/add-account.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/add-account.jsp")
+					.forward(request, response);
 
 		}
 

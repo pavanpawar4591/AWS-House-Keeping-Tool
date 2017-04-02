@@ -20,6 +20,7 @@
 			<th>Create By</th>
 			<th>Updated On</th>
 			<th>Updated By</th>
+			<th></th>
 		</tr>
 		</thead>
 		<tbody>

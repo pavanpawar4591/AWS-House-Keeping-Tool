@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.awshousekeeping.services.impl.AccountServiceImpl;
-import com.awshousekeeping.utils.BusinessException;
 
 @WebServlet(urlPatterns = "/Account-List.do")
 

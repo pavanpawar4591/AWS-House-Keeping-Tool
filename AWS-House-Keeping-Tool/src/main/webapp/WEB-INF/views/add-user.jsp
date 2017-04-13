@@ -34,13 +34,13 @@
 		</div>
 
 		<div class="form-group">
-			<label for="exampleSelect1">Account name</label> <select
+			<label for="exampleSelect1">Account region name</label> <select
 				class="form-control" id="exampleSelect1">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
+				<option>California</option>
+				<option>Canada</option>
+				<option>Ohio</option>
+				<option>Oregon</option>
+				<option>Northern Virginia</option>
 			</select>
 		</div>
 

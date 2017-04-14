@@ -13,6 +13,10 @@ import com.awshousekeeping.services.impl.TodoServiceImpl;
 @WebServlet(urlPatterns = "/list-todos.do")
 public class ListTodoServlet extends HttpServlet {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private TodoServiceImpl todoService = new TodoServiceImpl();
 
 	protected void doGet(HttpServletRequest request,

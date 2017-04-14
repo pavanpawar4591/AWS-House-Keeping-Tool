@@ -14,6 +14,10 @@ import com.awshousekeeping.services.impl.AwsIamUserServiceImpl;
 @WebServlet(urlPatterns = "/listawsIAM.do")
 public class ListIAMUsersSeverlet extends HttpServlet {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private AwsIamUserService uservice = new AwsIamUserServiceImpl();
 
 	protected void doGet(HttpServletRequest request,

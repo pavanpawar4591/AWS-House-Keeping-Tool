@@ -28,8 +28,8 @@
 		<div class="form-group">
 			<label for="exampleSelect1">role</label> <select class="form-control"
 				id="role" name="role">
-				<option>Admin</option>
-				<option>SuperAdmin</option>
+				<option>Super Admin User</option>
+				<option>Normal User</option>
 			</select>
 		</div>
 

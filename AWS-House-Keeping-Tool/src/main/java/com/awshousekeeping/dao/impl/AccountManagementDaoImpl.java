@@ -31,24 +31,24 @@ public class AccountManagementDaoImpl implements AccountManagementDao {
 
 			ps.setInt(1, account.getAccountId());
 			ps.setDate(2, CommonUtility.sqlDateConversion(new Date()));
-			ps.setString(3,"Anuja");
+			ps.setString(3, "Anuja");
 			ps.setDate(4, CommonUtility.sqlDateConversion(new Date()));
 			ps.setString(5, account.getUpdatedBy());
-			ps.setInt(6, account.getHspsId());
+			ps.setString(6, account.getHspsId());
 			ps.setDate(7, CommonUtility.sqlDateConversion(new Date()));
 			ps.setDate(8, CommonUtility.sqlDateConversion(new Date()));
 			ps.setString(9, account.getAwsAccountOwnerName());
 			ps.setDate(10, CommonUtility.sqlDateConversion(new Date()));
 			ps.setString(11, account.getEmailIdOfOwner());
 			ps.setString(12, account.getProjectName());
-			ps.setInt(13, account.getProjectId());
+			ps.setString(13, account.getProjectId());
 			ps.setString(14, account.getAccountType());
 			ps.setString(15, account.getHspsDescription());
-			ps.setInt(16, account.getBusinessUnit());
-			ps.setInt(17, account.getAwsAccountNumber());
+			ps.setString(16, account.getBusinessUnit());
+			ps.setString(17, account.getAwsAccountNumber());
 			ps.setString(18, account.getAwsAccountAlias());
-			ps.setInt(19, account.getAwsAccessKey());
-			ps.setInt(20, account.getAwsSecretKey());
+			ps.setString(19, account.getAwsAccessKey());
+			ps.setString(20, account.getAwsSecretKey());
 			ps.setString(21, account.getAwsAccessKeyXXXX());
 			ps.setString(22, account.getAwsSecretKeyXXXX());
 
@@ -83,7 +83,8 @@ public class AccountManagementDaoImpl implements AccountManagementDao {
 		Connection con = DBConnect.getConnecttion();
 		String sql = "select * from account";
 		try {
-			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
+			PreparedStatement ps = (PreparedStatement) con
+					.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 
@@ -94,21 +95,23 @@ public class AccountManagementDaoImpl implements AccountManagementDao {
 				account.setCreatedBy(rs.getString("created_by"));
 				account.setUpdatedOn(rs.getDate("updated_on"));
 				account.setUpdatedBy(rs.getString("updated_by"));
-				account.setHspsId(rs.getInt("hsps_id"));
+				account.setHspsId(rs.getString("hsps_id"));
 				account.setProjectExpireDate(rs.getDate("project_expire_date"));
-				account.setFreeTrialExpireDate(rs.getDate("free_trial_expire_date"));
-				account.setAwsAccountOwnerName(rs.getString("AWS_account_owner_name"));
+				account.setFreeTrialExpireDate(rs
+						.getDate("free_trial_expire_date"));
+				account.setAwsAccountOwnerName(rs
+						.getString("AWS_account_owner_name"));
 				account.setHspsExpireDate(rs.getDate("hsps_expire_date"));
 				account.setEmailIdOfOwner(rs.getString("email_id_of_owner"));
 				account.setProjectName(rs.getString("project_name"));
-				account.setProjectId(rs.getInt("project_id"));
+				account.setProjectId(rs.getString("project_id"));
 				account.setAccountType(rs.getString("account_type"));
 				account.setHspsDescription(rs.getString("hsps_description"));
-				account.setBusinessUnit(rs.getInt("business_unit"));
-				account.setAwsAccountNumber(rs.getInt("AWS_account_number"));
+				account.setBusinessUnit(rs.getString("business_unit"));
+				account.setAwsAccountNumber(rs.getString("AWS_account_number"));
 				account.setAwsAccountAlias(rs.getString("AWS_account_alias"));
-				account.setAwsAccessKey(rs.getInt("AWS_access_key"));
-				account.setAwsSecretKey(rs.getInt("AWS_secret_key"));
+				account.setAwsAccessKey(rs.getString("AWS_access_key"));
+				account.setAwsSecretKey(rs.getString("AWS_secret_key"));
 				account.setAwsAccessKeyXXXX(rs.getString("AWS_access_key_XXXX"));
 				account.setAwsSecretKeyXXXX(rs.getString("AWS_secret_key_XXXX"));
 

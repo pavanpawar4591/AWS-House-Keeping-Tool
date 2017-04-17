@@ -3,8 +3,7 @@
 
 
 <div class="container">
-	Add New User
-	<font color="red">${errorMessage}</font>
+	Add New User <font color="red">${errorMessage}</font>
 	<form method="POST" action="add-user.do">
 		<fieldset class="form-group">
 			<label>First Name</label> <input name="firstName" type="text"
@@ -20,38 +19,39 @@
 		</fieldset>
 
 		<fieldset class="form-group">
-			<label>Password</label> <input name="password" type="text"
+			<label>Password</label> <input name="password" type="password"
 				class="form-control" />
 		</fieldset>
 
-		<fieldset class="form-group">
-			<label>Role</label> <input name="role" type="text"
-				class="form-control" />
-		</fieldset>
+
 
 		<div class="form-group">
-			<label for="exampleSelect1">Account name</label> <select
+			<label for="exampleSelect1">role</label> <select class="form-control"
+				id="role" name="role">
+				<option>Super Admin User</option>
+				<option>Normal User</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="exampleSelect1">Account region name</label> <select
 				class="form-control" id="exampleSelect1">
-				<option>1</option>
-				<option>2</option>
-				<option>3</option>
-				<option>4</option>
-				<option>5</option>
+				<option>California</option>
+				<option>Canada</option>
+				<option>Ohio</option>
+				<option>Oregon</option>
+				<option>Northern Virginia</option>
 			</select>
 		</div>
 
 		<div class="form-group">
 			<label for="exampleInputEmail1">Email address</label> <input
-				type="email" class="form-control" id="exampleInputEmail1"
+				type="email" class="form-control" id="email" name="email"
 				aria-describedby="emailHelp" placeholder="Enter email"> <small
 				id="emailHelp" class="form-text text-muted">We'll never
 				share your email with anyone else.</small>
 		</div>
-		<div class="form-group">
-			<label for="exampleInputPassword1">Password</label> <input
-				type="password" class="form-control" id="exampleInputPassword1"
-				placeholder="Password">
-		</div>
+		
 		<input name="add" type="submit" class="btn btn-success" value="Submit" />
 		<button type="button" class="btn btn-danger">Cancel</button>
 	</form>

@@ -6,7 +6,7 @@
 
 
 	<table class="table table-striped table-bordered table-hover">
-		<caption>Your Account-List</caption>
+		<caption>AWS Account-List</caption>
 		<thead>
 		<tr class="info">
 			<th>Account Id</th>

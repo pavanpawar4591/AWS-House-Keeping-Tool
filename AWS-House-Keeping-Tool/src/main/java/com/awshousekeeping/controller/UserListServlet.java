@@ -14,6 +14,10 @@ import com.awshousekeeping.services.impl.UserServiceImpl;
 
 public class UserListServlet extends HttpServlet {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private UserServiceImpl userServiceImpl = new UserServiceImpl();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

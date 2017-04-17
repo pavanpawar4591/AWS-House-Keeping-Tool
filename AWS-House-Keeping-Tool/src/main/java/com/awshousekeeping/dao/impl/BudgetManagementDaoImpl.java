@@ -72,7 +72,7 @@ public class BudgetManagementDaoImpl implements BudgetManagementDao {
 			while (rs.next()) {
 
 				Budget budget = new Budget();
-
+						
 				budget.setBudgetId(rs.getInt("budget_id"));
 				budget.setBudgetStartDate(new Date());
 				budget.setBudgetEndDate(new Date());

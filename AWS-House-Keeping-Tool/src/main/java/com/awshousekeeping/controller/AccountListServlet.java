@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.awshousekeeping.services.impl.AccountServiceImpl;
-import com.awshousekeeping.utils.BusinessException;
 
 @WebServlet(urlPatterns = "/Account-List.do")
 
@@ -19,7 +18,7 @@ public class AccountListServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException{
-		request.setAttribute("account", accountServiceImpl.listAllAccounts());
+		request.setAttribute("accounts", accountServiceImpl.listAllAccounts());
 		request.getRequestDispatcher("/WEB-INF/views/Account-List.jsp").forward(request, response);
 	}
 

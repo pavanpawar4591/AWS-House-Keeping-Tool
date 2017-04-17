@@ -65,7 +65,7 @@ public class UserManagementDaoImpl implements UserManagementDao {
 
 	@Override
 	public List<User> getAllUser() {
-		List<User> users = new ArrayList();
+		List<User> users = new ArrayList<User>();
 
 		Connection con = DBConnect.getConnecttion();
 		String sql = "select * from user";
@@ -84,10 +84,10 @@ public class UserManagementDaoImpl implements UserManagementDao {
 				user.setLastName(rs.getString("last_name"));
 				user.setPassword("******");
 				user.setEmail(rs.getString("email"));
-				user.setRole(3);
-				user.setUpdatedBy("updated_by");
+				user.setRole(rs.getInt("role"));
+				user.setUpdatedBy(rs.getString("updated_by"));
 				user.setUpdatedOn(new Date());
-				user.setCreatedBy("created_by");
+				user.setCreatedBy(rs.getString("created_by"));
 				user.setIsActive(rs.getInt("is_active"));
 
 				users.add(user);

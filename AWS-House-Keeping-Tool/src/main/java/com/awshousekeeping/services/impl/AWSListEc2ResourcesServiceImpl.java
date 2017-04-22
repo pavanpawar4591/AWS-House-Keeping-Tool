@@ -9,7 +9,6 @@ import org.apache.log4j.Logger;
 import com.amazonaws.client.builder.AwsClientBuilder.EndpointConfiguration;
 import com.amazonaws.services.ec2.AmazonEC2;
 import com.amazonaws.services.ec2.AmazonEC2ClientBuilder;
-import com.amazonaws.services.ec2.model.DescribeInstancesRequest;
 import com.amazonaws.services.ec2.model.DescribeInstancesResult;
 import com.amazonaws.services.ec2.model.DescribeRegionsResult;
 import com.amazonaws.services.ec2.model.Instance;
@@ -18,8 +17,13 @@ import com.amazonaws.services.ec2.model.Reservation;
 import com.awshousekeeping.services.AWSListEc2ResourcesService;
 import com.awshousekeeping.utils.AllAWSClientBuilder;
 
-public class AWSListEc2ResourcesServiceImpl implements
-		AWSListEc2ResourcesService {
+/**
+ * 
+ * 
+ * @author pavan_pawar
+ *
+ */
+public class AWSListEc2ResourcesServiceImpl implements AWSListEc2ResourcesService {
 
 	static final Logger logger = Logger.getLogger(LoginServiceImpl.class);
 
@@ -39,16 +43,13 @@ public class AWSListEc2ResourcesServiceImpl implements
 
 			builder.setEndpointConfiguration(new EndpointConfiguration(r.getEndpoint(), null));
 			AmazonEC2 ec2clinet = builder.build();
-			DescribeInstancesResult describeInstancesResult = ec2clinet
-					.describeInstances();
-			
-			
+			DescribeInstancesResult describeInstancesResult = ec2clinet.describeInstances();
+
 			for (Reservation res : describeInstancesResult.getReservations()) {
 
 				resultMap.put(r.getRegionName(), res.getInstances());
 
-				logger.info("region name : " + r.getRegionName() + "   :"
-						+ res.getInstances().toString());
+				logger.info("region name : " + r.getRegionName() + "   :" + res.getInstances().toString());
 
 			}
 

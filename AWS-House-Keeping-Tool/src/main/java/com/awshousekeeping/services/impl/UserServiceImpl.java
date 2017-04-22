@@ -8,6 +8,11 @@ import com.awshousekeeping.model.User;
 import com.awshousekeeping.services.UserService;
 import com.awshousekeeping.utils.BusinessException;
 
+/**
+ * 
+ * @author pavan_pawar
+ *
+ */
 public class UserServiceImpl implements UserService {
 
 	private UserManagementDao userManagementDao = new UserManagementDaoImpl();

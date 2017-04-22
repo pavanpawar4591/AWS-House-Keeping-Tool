@@ -1,5 +1,9 @@
 package com.awshousekeeping.model;
-
+/**
+ * 
+ * @author pavan_pawar
+ *
+ */
 public class Role {
 
 	private int role;

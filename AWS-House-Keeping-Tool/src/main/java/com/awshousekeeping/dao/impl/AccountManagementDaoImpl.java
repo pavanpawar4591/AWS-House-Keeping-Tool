@@ -16,6 +16,11 @@ import com.awshousekeeping.utils.BusinessException;
 import com.awshousekeeping.utils.CommonUtility;
 import com.awshousekeeping.utils.DBConnect;
 
+/**
+ * 
+ * @author pavan_pawar
+ *
+ */
 public class AccountManagementDaoImpl implements AccountManagementDao {
 
 	static final Logger logger = Logger.getLogger(UserManagementDaoImpl.class);
@@ -25,9 +30,9 @@ public class AccountManagementDaoImpl implements AccountManagementDao {
 
 		Connection con = DBConnect.getConnecttion();
 		String sql = "insert into account(account_id,created_on,created_by,updated_on,updated_by,hsps_id,project_expire_date,free_trial_expire_date,AWS_account_owner_name,hsps_expire_date,email_id_of_owner,project_name,project_id,account_type,hsps_description,business_unit,AWS_account_number,AWS_account_alias,AWS_access_key,AWS_secret_key,AWS_access_key_XXXX,AWS_secret_key_XXXX ) value(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-		PreparedStatement ps;
+		PreparedStatement ps = null;
 		try {
-			ps = (PreparedStatement) con.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 
 			ps.setInt(1, account.getAccountId());
 			ps.setDate(2, CommonUtility.sqlDateConversion(new Date()));
@@ -58,6 +63,16 @@ public class AccountManagementDaoImpl implements AccountManagementDao {
 		} catch (SQLException e) {
 			logger.error("Error while adding account", e);
 			throw new BusinessException("Error While Adding Account", e);
+		} finally {
+			try {
+				con.close();
+				if (null != ps)
+					ps.close();
+			} catch (SQLException e) {
+				logger.error("Error while adding account", e);
+
+			}
+
 		}
 
 		return true;
@@ -78,13 +93,13 @@ public class AccountManagementDaoImpl implements AccountManagementDao {
 
 	@Override
 	public List<Account> getAllAccount() {
-		List<Account> accounts = new ArrayList();
+		List<Account> accounts = new ArrayList<>();
 
 		Connection con = DBConnect.getConnecttion();
 		String sql = "select * from account";
+		PreparedStatement ps = null;
 		try {
-			PreparedStatement ps = (PreparedStatement) con
-					.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 
@@ -97,10 +112,8 @@ public class AccountManagementDaoImpl implements AccountManagementDao {
 				account.setUpdatedBy(rs.getString("updated_by"));
 				account.setHspsId(rs.getString("hsps_id"));
 				account.setProjectExpireDate(rs.getDate("project_expire_date"));
-				account.setFreeTrialExpireDate(rs
-						.getDate("free_trial_expire_date"));
-				account.setAwsAccountOwnerName(rs
-						.getString("AWS_account_owner_name"));
+				account.setFreeTrialExpireDate(rs.getDate("free_trial_expire_date"));
+				account.setAwsAccountOwnerName(rs.getString("AWS_account_owner_name"));
 				account.setHspsExpireDate(rs.getDate("hsps_expire_date"));
 				account.setEmailIdOfOwner(rs.getString("email_id_of_owner"));
 				account.setProjectName(rs.getString("project_name"));
@@ -120,8 +133,20 @@ public class AccountManagementDaoImpl implements AccountManagementDao {
 			}
 
 			con.close();
+			ps.close();
 		} catch (SQLException e) {
-			logger.error(e);
+			logger.error(e.getMessage(), e);
+		} finally {
+			try {
+				con.close();
+
+				if (null != ps) {
+					ps.close();
+				}
+			} catch (SQLException e) {
+				logger.error(e.getMessage(), e);
+
+			}
 		}
 		return accounts;
 	}

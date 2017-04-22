@@ -2,6 +2,11 @@ package com.awshousekeeping.model;
 
 import java.util.Date;
 
+/**
+ * 
+ * @author pavan_pawar
+ *
+ */
 public class User {
 
 	private int uid;

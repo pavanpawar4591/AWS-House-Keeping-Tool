@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.awshousekeeping.services.AwsIamUserService;
 import com.awshousekeeping.services.impl.AwsIamUserServiceImpl;
 
@@ -17,18 +19,21 @@ public class ListIAMUsersSeverlet extends HttpServlet {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	private AwsIamUserService uservice = new AwsIamUserServiceImpl();
+	public static final Logger LOGGER = Logger.getLogger(ListIAMUsersSeverlet.class);
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	private static final long serialVersionUID = 1L;
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		try {
+			AwsIamUserService uservice = new AwsIamUserServiceImpl();
+
 			request.setAttribute("users", uservice.getAllIAMUSers(1).getUsers());
 		} catch (Exception e) {
+			LOGGER.error(e.getMessage(), e);
 			request.setAttribute("errorMessage", e.getMessage());
 
 		}
-		request.getRequestDispatcher("/WEB-INF/views/IAM-User-List.jsp")
-				.forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/IAM-User-List.jsp").forward(request, response);
 	}
 }

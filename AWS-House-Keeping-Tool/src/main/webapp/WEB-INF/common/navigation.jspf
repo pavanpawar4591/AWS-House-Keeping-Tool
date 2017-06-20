@@ -25,6 +25,10 @@
 				<ul class="dropdown-menu">
 					<li><a href="listawss3.do">S3 Security</a></li>
 					<li><a href="listawsec2.do">EC2 Security</a></li>
+					<li><a href="listEbsVolumes.do">EBS Volume Security</a></li>
+
+					<li><a href="listawsIAM.do">IAM User login</a></li>
+
 					<li role="separator" class="divider"></li>
 					<li><a href="billing-dashboard.do">Billing Report</a></li>
 				</ul></li>
@@ -35,11 +39,10 @@
 				data-toggle="dropdown" role="button" aria-haspopup="true"
 				aria-expanded="false">Reposts <span class="caret"></span></a>
 				<ul class="dropdown-menu">
-					<li><a href="listawsIAM.do">User login</a></li>
 					<li><a href="send-mail.do">Send E-mail</a></li>
 					<li role="separator" class="divider"></li>
 					<li><a href="view-report.do">View report</a></li>
-					
+
 				</ul></li>
 
 		</ul>

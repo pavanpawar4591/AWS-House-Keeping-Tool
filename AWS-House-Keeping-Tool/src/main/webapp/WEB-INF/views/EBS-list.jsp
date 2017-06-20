@@ -16,10 +16,13 @@
 				<caption>Region: ${ec2.key}   Total Instances = <c:out value="${ec2.value.size()}"/></caption>
 				<thead>
 					<tr class="info">
-						<th>Instance Id</th>
-						<th>Instance Type</th>
-						<th>Launch Time</th>
+						<th>VolumeId</th>
+						<th>Size</th>
+						<td>SnapshotId</td>
+						<th>CreateTime</th>
 						<th>State</th>
+						<th>Tag</th>
+						
 					</tr>
 				</thead>
 
@@ -27,20 +30,23 @@
 					
 					<c:forEach var="instance" items="${ec2.value}">
 						<tr>
-							<td><a href="https://<c:out value="${ec2.key}"/>.console.aws.amazon.com/ec2/v2/home?region=<c:out value="${ec2.key}"/>#Instances:search=<c:out value="${instance.instanceId}"/>;sort=instanceId "> ${instance.instanceId} </a></td>
-							<td>${instance.instanceType}</td>
-							<td>${instance.launchTime}</td>
-							<td>${instance.state.name}</td>
+							<td><a href="https://<c:out value="${ec2.key}"/>.console.aws.amazon.com/ec2/v2/home?region=<c:out value="${ec2.key}"/>#Instances:search=<c:out value="${instance.volumeId}"/>;sort=instanceId "> ${instance.volumeId} </a></td>
+							<td>${instance.size}</td>
+							<td>${instance.snapshotId}</td>
+							<td>${instance.createTime}</td>
+							<td>${instance.state}</td>
+							<td>${instance.tags}</td>
+							<c:set var="total" value="${total + instance.size}" />
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
-
+Total size =${total} GB   Proposed Cost =$ ${total * 0.10}
 		</c:if>
 
 	</c:forEach>
 
 
 
-</div>
+</div> 
 <%@ include file="../common/footer.jspf"%>

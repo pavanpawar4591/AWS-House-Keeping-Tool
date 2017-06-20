@@ -1,6 +1,5 @@
 package com.awshousekeeping.services.impl;
 
-import java.awt.geom.Area;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -27,6 +26,8 @@ public class AWSListEc2ResourcesServiceImpl implements AWSListEc2ResourcesServic
 	public Map<String, List<Instance>> getAllRegionsEc2Resources(int accountId) {
 
 		AmazonEC2 ec2 = AllAWSClientBuilder.getEc2Client(0);
+		
+		
 
 		DescribeRegionsResult describeRegionsResult = ec2.describeRegions();
 

@@ -9,7 +9,7 @@ public class TestIAMUserManagement {
 
 	private AwsIamUserService awsIamUserService = new AwsIamUserServiceImpl();
 
-	//@Test
+	@Test
 	public void awstest() throws Exception {
 		
 		try{

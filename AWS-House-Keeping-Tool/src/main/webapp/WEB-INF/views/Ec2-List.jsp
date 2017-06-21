@@ -41,13 +41,13 @@
 								sorttable_customkey=<fmt:formatDate value="${instance.launchTime}" pattern="yyyy-MM-dd HH:mm:ss" />>${instance.launchTime}</td>
 							<td>${instance.state.name}</td>
 
-
-							<c:forEach items="${instance.tags}" var="currentItem"
+							<td>${instance.tags}</td>
+							<%-- <c:forEach items="${instance.tags}" var="currentItem"
 								varStatus="stat">
 								<c:set var="myTag"
 									value="${stat.first ? '' : myVar} ${currentItem.value}" />
 							</c:forEach>
-							<td><c:out value="${myTag}" /></td>
+							<td><c:out value="${myTag}" /></td> --%>
 
 
 							<c:forEach items="${instance.blockDeviceMappings}"

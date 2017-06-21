@@ -10,7 +10,7 @@
 
 
 
-	<table class="table table-striped table-bordered table-hover">
+	<table class="sortable table table-striped table-bordered table-hover">
 		<thead>
 			<tr class="info">
 				<th>Name</th>
@@ -23,7 +23,7 @@
 			<c:forEach var="bucket" items="${s3Buckets}">
 				<tr>
 					<td>${bucket.name}</td>
-					<td>${bucket.creationDate}</td>
+					<td sorttable_customkey=<fmt:formatDate value="${bucket.creationDate}" pattern="yyyy-MM-dd HH:mm:ss" /> > ${bucket.creationDate}</td>
 					<td>${bucket.owner}</td>
 				
 				</tr>

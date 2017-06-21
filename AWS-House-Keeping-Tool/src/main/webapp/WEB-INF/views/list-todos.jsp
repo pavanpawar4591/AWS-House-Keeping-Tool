@@ -9,15 +9,7 @@ Welcome to AWS House Keeping tool Super Admin
 
 
 
-<% request.setAttribute( "test", new ArrayList<String>()); %>
 
-<display:table name="test">
-  <display:column property="id" title="ID" />
-  <display:column property="name" />
-  <display:column property="email" />
-  <display:column property="status" />
-  <display:column property="description" title="Comments"/>
-</display:table>
 
 </div>
 

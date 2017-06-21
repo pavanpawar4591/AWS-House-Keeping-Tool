@@ -29,7 +29,7 @@ public class DBConnect {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			cons = DriverManager.getConnection(
-					"jdbc:mysql://localhost:3306/hktool", "root", "");
+					"jdbc:mysql://localhost:3306/hktool", "root", "root");
 		} catch (Exception e) {
 			logger.error("Error at creating connection to database ", e);
 		}

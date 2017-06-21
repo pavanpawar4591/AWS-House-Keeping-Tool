@@ -2,34 +2,23 @@
 <%@ include file="../common/navigation.jspf"%>
 
 <div class="container">
-	<H6>Welcome ${name}</H6>
+	<H2>Welcome ${name}</H2>
+	</br>
 	<p>
 		<font color="red">${errorMessage}</font>
 	</p>
 
 
+	<display:table name="users" id="row" sort="list" uid="one"
+		pagesize="10" requestURI="listawsIAM.do"
+		class="table table-striped table-bordered table-hover">
 
+		<display:column property="userName" />
+		<display:column sortable="true" title="CreateDate"
+			property="createDate" />
+		<display:column property="passwordLastUsed" />
 
-	<table class="table table-striped table-bordered table-hover">
-		<caption>All Users</caption>
-		<thead>
-			<tr class="info">
-				<th>User Name</th>
-				<th>Create Date</th>
-				<th>Password Last Used</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach items="${users}" var="user">
-				<tr>
-					<td>${user.userName}</td>
-					<td>${user.createDate}</td>
-					<td>${user.passwordLastUsed}</td>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-
+	</display:table>
 
 
 

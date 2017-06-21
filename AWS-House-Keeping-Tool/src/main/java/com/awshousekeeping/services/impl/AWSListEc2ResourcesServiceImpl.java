@@ -18,7 +18,12 @@ import com.amazonaws.services.ec2.model.Reservation;
 import com.awshousekeeping.services.AWSListEc2ResourcesService;
 import com.awshousekeeping.utils.AllAWSClientBuilder;
 
-public class AWSListEc2ResourcesServiceImpl implements AWSListEc2ResourcesService {
+/**
+ * 
+ * 
+ * @author pavan_pawar
+ *
+ */
 
 	static final Logger logger = Logger.getLogger(AWSListEc2ResourcesServiceImpl.class);
 

@@ -13,16 +13,14 @@ import com.awshousekeeping.services.impl.TodoServiceImpl;
 @WebServlet(urlPatterns = "/list-todos.do")
 public class ListTodoServlet extends HttpServlet {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private TodoServiceImpl todoService = new TodoServiceImpl();
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		TodoServiceImpl todoService = new TodoServiceImpl();
+
 		request.setAttribute("todos", todoService.retrieveTodos());
-		request.getRequestDispatcher("/WEB-INF/views/list-todos.jsp").forward(
-				request, response);
+		request.getRequestDispatcher("/WEB-INF/views/list-todos.jsp").forward(request, response);
 	}
 }

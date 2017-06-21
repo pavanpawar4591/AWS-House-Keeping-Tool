@@ -8,24 +8,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.awshousekeeping.services.impl.LoginServiceImpl;
-import com.awshousekeeping.services.impl.TodoServiceImpl;
 import com.awshousekeeping.utils.BusinessException;
 
+/**
+ * 
+ * @author pavan_pawar
+ *
+ */
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/login.do")
 public class LoginServlet extends HttpServlet {
 
-	private LoginServiceImpl userValidationService = new LoginServiceImpl();
-	private TodoServiceImpl todoService = new TodoServiceImpl();
+	public static final Logger LOGGER = Logger.getLogger(LoginServlet.class);
 
-	protected void doGet(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
-				request, response);
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request,
-			HttpServletResponse response) throws ServletException, IOException {
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		LoginServiceImpl userValidationService = new LoginServiceImpl();
+
 		String name = request.getParameter("name");
 		String password = request.getParameter("password");
 
@@ -42,14 +51,12 @@ public class LoginServlet extends HttpServlet {
 
 			} else {
 				request.setAttribute("errorMessage", "Invalid Credentials!");
-				request.getRequestDispatcher("/WEB-INF/views/login.jsp")
-						.forward(request, response);
+				request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 			}
 		} catch (BusinessException e) {
-
+			LOGGER.error(e.getMessage(), e);
 			request.setAttribute("errorMessage", e.getCause());
-			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(
-					request, response);
+			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
 
 		}
 

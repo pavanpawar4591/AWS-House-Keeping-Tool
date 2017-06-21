@@ -5,6 +5,11 @@ import java.util.List;
 import com.awshousekeeping.model.Account;
 import com.awshousekeeping.utils.BusinessException;
 
+/**
+ * 
+ * @author pavan_pawar
+ *
+ */
 public interface AccountManagementDao {
 	/**
 	 * 

@@ -6,21 +6,22 @@ import com.awshousekeeping.services.AwsIamUserService;
 import com.awshousekeeping.utils.AllAWSClientBuilder;
 import com.awshousekeeping.utils.BusinessException;
 
+/**
+ * 
+ * @author pavan_pawar
+ *
+ */
 public class AwsIamUserServiceImpl implements AwsIamUserService {
 
 	@Override
-	public ListUsersResult getAllIAMUSers(int acountID) throws Exception {
+	public ListUsersResult getAllIAMUSers(int acountID) throws BusinessException {
 
 		try {
-			AmazonIdentityManagement iamClient = AllAWSClientBuilder
-					.getIAMClient(acountID);
-
-			//GetUserRequest getusereq = new GetUserRequest();
-		//	GetUserResult u = iamClient.getUser(getusereq);
+			AmazonIdentityManagement iamClient = AllAWSClientBuilder.getIAMClient(acountID);
 			return iamClient.listUsers();
 
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			throw new BusinessException("error at get user", e);
 		}
 

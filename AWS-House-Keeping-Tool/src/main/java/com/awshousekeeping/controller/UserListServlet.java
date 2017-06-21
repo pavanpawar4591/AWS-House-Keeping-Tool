@@ -11,17 +11,23 @@ import javax.servlet.http.HttpServletResponse;
 import com.awshousekeeping.services.impl.UserServiceImpl;
 
 @WebServlet(urlPatterns = "/User-List.do")
-
+/**
+ * 
+ * @author pavan_pawar
+ *
+ */
 public class UserListServlet extends HttpServlet {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private UserServiceImpl userServiceImpl = new UserServiceImpl();
 
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		UserServiceImpl userServiceImpl = new UserServiceImpl();
+
 		request.setAttribute("users", userServiceImpl.listAllUsers());
 		request.getRequestDispatcher("/WEB-INF/views/User-List.jsp").forward(request, response);
 	}

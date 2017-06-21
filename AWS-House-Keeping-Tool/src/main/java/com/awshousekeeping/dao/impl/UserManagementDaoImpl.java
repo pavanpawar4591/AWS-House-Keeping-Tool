@@ -16,6 +16,11 @@ import com.awshousekeeping.utils.BusinessException;
 import com.awshousekeeping.utils.CommonUtility;
 import com.awshousekeeping.utils.DBConnect;
 
+/**
+ * 
+ * @author pavan_pawar
+ *
+ */
 public class UserManagementDaoImpl implements UserManagementDao {
 
 	static final Logger logger = Logger.getLogger(UserManagementDaoImpl.class);
@@ -46,6 +51,13 @@ public class UserManagementDaoImpl implements UserManagementDao {
 		} catch (SQLException e) {
 			logger.error("Error while adding user", e);
 			throw new BusinessException("Error While Adding User", e);
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				logger.error("Error while adding account", e);
+
+			}
 		}
 
 		return true;
@@ -69,9 +81,9 @@ public class UserManagementDaoImpl implements UserManagementDao {
 
 		Connection con = DBConnect.getConnecttion();
 		String sql = "select * from user";
+		PreparedStatement ps = null;
 		try {
-			PreparedStatement ps = (PreparedStatement) con
-					.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 
@@ -95,9 +107,22 @@ public class UserManagementDaoImpl implements UserManagementDao {
 			}
 
 			con.close();
+			ps.close();
+
 		} catch (SQLException e) {
 			logger.error(e);
+		} finally {
+			try {
+				con.close();
+
+				if (null != ps)
+					ps.close();
+			} catch (SQLException e) {
+				logger.error("Error while adding account", e);
+
+			}
 		}
+
 		return users;
 	}
 

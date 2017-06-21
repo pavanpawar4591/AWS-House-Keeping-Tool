@@ -19,11 +19,10 @@ public class LoginDaoImpl implements LoginDao {
 		logger.debug("---inside Logindao---");
 
 		Connection con = DBConnect.getConnecttion();
-		String sql = "select * from user where user_name='" + userName
-				+ "' and password='" + password + "'";
+		String sql = "select * from user where user_name='" + userName + "' and password='" + password + "'";
 		PreparedStatement ps;
 		try {
-			
+
 			ps = (PreparedStatement) con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 
@@ -43,6 +42,13 @@ public class LoginDaoImpl implements LoginDao {
 				logger.error("Error while closing connection ", e1);
 			}
 
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				logger.error("Error while adding account", e);
+
+			}
 		}
 
 		return false;
@@ -77,7 +83,15 @@ public class LoginDaoImpl implements LoginDao {
 				throw new BusinessException("Error while taking role", e1);
 			}
 
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				logger.error("Error while adding account", e);
+
+			}
 		}
+
 		return 0;
 	}
 

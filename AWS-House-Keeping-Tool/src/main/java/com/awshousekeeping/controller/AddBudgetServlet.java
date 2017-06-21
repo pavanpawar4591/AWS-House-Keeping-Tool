@@ -9,21 +9,33 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.awshousekeeping.model.Budget;
 import com.awshousekeeping.services.BudgetService;
 import com.awshousekeeping.services.impl.BudgetServiceImpl;
 import com.awshousekeeping.utils.BusinessException;
 
+/**
+ * 
+ * @author pavan_pawar
+ *
+ */
+@SuppressWarnings("serial")
 @WebServlet(urlPatterns = "/add-budget.do")
 public class AddBudgetServlet extends HttpServlet {
 
-	private BudgetService budgetService = new BudgetServiceImpl();
+	public static final Logger LOGGER = Logger.getLogger(AddBudgetServlet.class);
 
+	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/add-budget.jsp").forward(request, response);
 	}
 
+	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		BudgetService budgetService = new BudgetServiceImpl();
 
 		try {
 
@@ -46,6 +58,7 @@ public class AddBudgetServlet extends HttpServlet {
 				request.getRequestDispatcher("/WEB-INF/views/add-budget.jsp").forward(request, response);
 			}
 		} catch (BusinessException e) {
+			LOGGER.error(e.getMessage(), e);
 			request.setAttribute("errorMessage", e.getCause());
 			request.getRequestDispatcher("/WEB-INF/views/add-budget.jsp").forward(request, response);
 

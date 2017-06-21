@@ -16,9 +16,14 @@ import com.awshousekeeping.utils.BusinessException;
 import com.awshousekeeping.utils.CommonUtility;
 import com.awshousekeeping.utils.DBConnect;
 
+/**
+ * 
+ * @author pavan_pawar
+ *
+ */
 public class BudgetManagementDaoImpl implements BudgetManagementDao {
 
-	static final Logger logger = Logger.getLogger(BudgetManagementDaoImpl.class);
+	static final Logger LOGGER = Logger.getLogger(BudgetManagementDaoImpl.class);
 
 	@Override
 	public boolean addBudget(Budget budget) throws BusinessException {
@@ -41,8 +46,16 @@ public class BudgetManagementDaoImpl implements BudgetManagementDao {
 			con.close();
 			ps.close();
 		} catch (SQLException e) {
-			logger.error("Error while adding budget", e);
+			LOGGER.error("Error while adding budget", e);
 			throw new BusinessException("Error While Adding Budget", e);
+		} finally {
+			try {
+				con.close();
+			} catch (SQLException e) {
+				LOGGER.error("Error while adding account", e);
+
+			}
+
 		}
 
 		return true;
@@ -62,17 +75,18 @@ public class BudgetManagementDaoImpl implements BudgetManagementDao {
 
 	@Override
 	public List<Budget> getAllBudget() {
-		List<Budget> budgets = new ArrayList();
+		List<Budget> budgets = new ArrayList<>();
 
 		Connection con = DBConnect.getConnecttion();
 		String sql = "select * from budget";
+		PreparedStatement ps = null;
 		try {
-			PreparedStatement ps = (PreparedStatement) con.prepareStatement(sql);
+			ps = con.prepareStatement(sql);
 			ResultSet rs = ps.executeQuery();
 			while (rs.next()) {
 
 				Budget budget = new Budget();
-						
+
 				budget.setBudgetId(rs.getInt("budget_id"));
 				budget.setBudgetStartDate(new Date());
 				budget.setBudgetEndDate(new Date());
@@ -86,8 +100,18 @@ public class BudgetManagementDaoImpl implements BudgetManagementDao {
 			}
 
 			con.close();
+			ps.close();
 		} catch (SQLException e) {
-			logger.error(e);
+			LOGGER.error(e);
+		} finally {
+			try {
+				con.close();
+
+				ps.close();
+			} catch (SQLException e) {
+				LOGGER.error("Error while adding account", e);
+
+			}
 		}
 		return budgets;
 	}

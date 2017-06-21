@@ -9,7 +9,7 @@ public class TestEc2Resources {
 
 	private AWSListEc2ResourcesService service = new AWSListEc2ResourcesServiceImpl();
 
-	//@Test
+	@Test
 	public void testEc2Result() {
 		service.getAllRegionsEc2Resources(0);
 

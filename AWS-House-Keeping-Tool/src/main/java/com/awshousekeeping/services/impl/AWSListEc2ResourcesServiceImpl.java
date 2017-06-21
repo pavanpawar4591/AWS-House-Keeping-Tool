@@ -1,5 +1,6 @@
 package com.awshousekeeping.services.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,14 +24,15 @@ import com.awshousekeeping.utils.AllAWSClientBuilder;
  * @author pavan_pawar
  *
  */
-public class AWSListEc2ResourcesServiceImpl implements AWSListEc2ResourcesService {
 
-	static final Logger logger = Logger.getLogger(LoginServiceImpl.class);
+	static final Logger logger = Logger.getLogger(AWSListEc2ResourcesServiceImpl.class);
 
 	@Override
 	public Map<String, List<Instance>> getAllRegionsEc2Resources(int accountId) {
 
 		AmazonEC2 ec2 = AllAWSClientBuilder.getEc2Client(0);
+		
+		
 
 		DescribeRegionsResult describeRegionsResult = ec2.describeRegions();
 
@@ -45,16 +47,24 @@ public class AWSListEc2ResourcesServiceImpl implements AWSListEc2ResourcesServic
 			AmazonEC2 ec2clinet = builder.build();
 			DescribeInstancesResult describeInstancesResult = ec2clinet.describeInstances();
 
+			List<Instance> finalResult = new ArrayList<>();
+
 			for (Reservation res : describeInstancesResult.getReservations()) {
 
-				resultMap.put(r.getRegionName(), res.getInstances());
+				// resultMap.put(r.getRegionName(), res.getInstances());
+				if (!res.getInstances().isEmpty())
+					finalResult.add(res.getInstances().get(0));
 
 				logger.info("region name : " + r.getRegionName() + "   :" + res.getInstances().toString());
 
 			}
 
-		}
+			resultMap.put(r.getRegionName(), finalResult);
 
+		}
+	
 		return resultMap;
 	}
+
+	
 }

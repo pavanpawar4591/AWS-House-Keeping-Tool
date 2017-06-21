@@ -43,7 +43,7 @@ public class LoginServlet extends HttpServlet {
 			role = userValidationService.isUserValid(name, password);
 			if (role == 1) {
 				request.getSession().setAttribute("name", name);
-				response.sendRedirect("list-todos.do");
+				response.sendRedirect("home.do");
 
 			} else if (role == 2) {
 				request.getSession().setAttribute("name", name);

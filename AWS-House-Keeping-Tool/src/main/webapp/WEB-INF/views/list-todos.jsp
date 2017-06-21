@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ include file="../common/header.jspf"%>
 <%@ include file="../common/navigation.jspf"%>
 
@@ -5,6 +6,10 @@
 	<H1>Welcome ${name}</H1>
 
 Welcome to AWS House Keeping tool Super Admin
+
+
+
+
 
 </div>
 

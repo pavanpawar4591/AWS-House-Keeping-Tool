@@ -8,10 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.awshousekeeping.services.AWSListEc2ResourcesService;
 import com.awshousekeeping.services.AwsEBSResourceService;
 import com.awshousekeeping.services.impl.AWSEBSResourceServiceImpl;
-import com.awshousekeeping.services.impl.AWSListEc2ResourcesServiceImpl;
 
 /**
  * 

@@ -24,6 +24,7 @@ import com.awshousekeeping.utils.AllAWSClientBuilder;
  * @author pavan_pawar
  *
  */
+public class AWSListEc2ResourcesServiceImpl implements AWSListEc2ResourcesService {
 
 	static final Logger logger = Logger.getLogger(AWSListEc2ResourcesServiceImpl.class);
 
@@ -31,8 +32,6 @@ import com.awshousekeeping.utils.AllAWSClientBuilder;
 	public Map<String, List<Instance>> getAllRegionsEc2Resources(int accountId) {
 
 		AmazonEC2 ec2 = AllAWSClientBuilder.getEc2Client(0);
-		
-		
 
 		DescribeRegionsResult describeRegionsResult = ec2.describeRegions();
 
@@ -62,9 +61,8 @@ import com.awshousekeeping.utils.AllAWSClientBuilder;
 			resultMap.put(r.getRegionName(), finalResult);
 
 		}
-	
+
 		return resultMap;
 	}
 
-	
 }

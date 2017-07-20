@@ -9,7 +9,7 @@ public class TestFreeEbs {
 
 	private AwsEBSResourceService awsEBSResourceService = new AWSEBSResourceServiceImpl();
 
-	@Test
+	//@Test
 	public void testfreeEbsResult() {
 		System.out.println(awsEBSResourceService.getAllRegionsEBSVolume("0").toString());
 

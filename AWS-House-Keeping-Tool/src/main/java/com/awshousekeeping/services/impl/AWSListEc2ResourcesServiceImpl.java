@@ -24,6 +24,9 @@ import com.awshousekeeping.utils.AllAWSClientBuilder;
  * @author pavan_pawar
  *
  */
+public class AWSListEc2ResourcesServiceImpl implements AWSListEc2ResourcesService
+{
+	
 
 	static final Logger logger = Logger.getLogger(AWSListEc2ResourcesServiceImpl.class);
 

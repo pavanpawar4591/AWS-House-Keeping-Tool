@@ -23,6 +23,7 @@ public class DBConnect {
 	 * This is static method used for getting connection from mysql database
 	 * 
 	 * @return Connection
+	 *  
 	 */
 	public static Connection getConnecttion() {
 		Connection cons = null;

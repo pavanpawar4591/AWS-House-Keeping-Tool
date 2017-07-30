@@ -23,7 +23,7 @@ public class DBConnect {
 	 * This is static method used for getting connection from mysql database
 	 * 
 	 * 
-	 * this is my class
+	 * This is my class
 	 * @return Connection
 	 *  
 	 */

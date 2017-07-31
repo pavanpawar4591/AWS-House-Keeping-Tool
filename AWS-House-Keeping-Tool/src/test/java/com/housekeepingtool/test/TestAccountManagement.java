@@ -86,13 +86,11 @@ public class TestAccountManagement {
 		long a = in.nextLong();
 		long b = in.nextLong();
 
-
 		List<Long> input = new ArrayList<>();
 		input.add(a);
 		input.add(b);
 
 		Collections.sort(input);
-
 
 	}
 }

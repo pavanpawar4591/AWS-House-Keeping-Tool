@@ -1,7 +1,5 @@
 package com.housekeepingtool.test;
 
-import org.junit.Test;
-
 import com.awshousekeeping.services.AWSListEc2ResourcesService;
 import com.awshousekeeping.services.impl.AWSListEc2ResourcesServiceImpl;
 

@@ -79,7 +79,7 @@ public class TestBudget {
 		long c = in.nextLong();
 		long d = in.nextLong();
 		long e = in.nextLong();
-	
+
 		long sum = a + b + c + d + e;
 		List<Long> input = new ArrayList<>();
 		input.add(a);

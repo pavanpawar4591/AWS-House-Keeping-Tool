@@ -6,7 +6,11 @@ import com.amazonaws.services.identitymanagement.AmazonIdentityManagement;
 import com.amazonaws.services.identitymanagement.AmazonIdentityManagementClientBuilder;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
-
+/**
+ * This is aws client builder class
+ * @author Pavan.Pawar
+ *
+ */
 public class AllAWSClientBuilder {
 
 	public static final String accessKey = "";

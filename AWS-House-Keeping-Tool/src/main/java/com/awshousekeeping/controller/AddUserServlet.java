@@ -17,6 +17,7 @@ import com.awshousekeeping.services.impl.UserServiceImpl;
 import com.awshousekeeping.utils.BusinessException;
 
 /**
+ * This is AddUserServlet class
  * 
  * @author pavan_pawar
  *

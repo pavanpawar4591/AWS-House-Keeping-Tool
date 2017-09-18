@@ -1,34 +1,28 @@
--- phpMyAdmin SQL Dump
--- version 4.1.14
--- http://www.phpmyadmin.net
+-- MySQL dump 10.13  Distrib 5.7.14, for Win64 (x86_64)
 --
--- Host: 127.0.0.1
--- Generation Time: Feb 11, 2017 at 12:39 PM
--- Server version: 5.6.17
--- PHP Version: 5.5.12
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
+-- Host: localhost    Database: hktool
+-- ------------------------------------------------------
+-- Server version	5.7.14
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
-
---
--- Database: `hktool`
---
-CREATE DATABASE IF NOT EXISTS `hktool` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `hktool`;
-
--- --------------------------------------------------------
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
 -- Table structure for table `account`
 --
 
-CREATE TABLE IF NOT EXISTS `account` (
+DROP TABLE IF EXISTS `account`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account` (
   `account_id` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Account_ID',
   `created_on` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'Date of creation',
   `created_by` varchar(40) NOT NULL COMMENT 'Created_by',
@@ -53,70 +47,78 @@ CREATE TABLE IF NOT EXISTS `account` (
   `AWS_secret_key_XXXX` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`account_id`),
   UNIQUE KEY `account_id_UNIQUE` (`account_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `account`
+--
+
+LOCK TABLES `account` WRITE;
+/*!40000 ALTER TABLE `account` DISABLE KEYS */;
+/*!40000 ALTER TABLE `account` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `account_user_association`
 --
 
-CREATE TABLE IF NOT EXISTS `account_user_association` (
+DROP TABLE IF EXISTS `account_user_association`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `account_user_association` (
   `uid` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `account_id` int(11) unsigned NOT NULL,
   `is_active` bit(1) NOT NULL,
   UNIQUE KEY `account_id_UNIQUE` (`account_id`),
-  UNIQUE KEY `uid_UNIQUE` (`uid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `budget`
---
-
-CREATE TABLE IF NOT EXISTS `budget` (
-  `budget_id` int(11) NOT NULL,
-  `budget_start_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `budget_end_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `budget_amount` double NOT NULL,
-  `budget_description` varchar(45) DEFAULT NULL,
-  `budget_conditional_operator` varchar(20) DEFAULT NULL,
-  `account_id` int(11) unsigned NOT NULL,
-  PRIMARY KEY (`budget_id`),
-  UNIQUE KEY `budget_id_UNIQUE` (`budget_id`),
-  UNIQUE KEY `account_id_UNIQUE` (`account_id`)
+  UNIQUE KEY `uid_UNIQUE` (`uid`),
+  CONSTRAINT `account_id` FOREIGN KEY (`account_id`) REFERENCES `account` (`account_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `user_id` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `account_user_association`
+--
+
+LOCK TABLES `account_user_association` WRITE;
+/*!40000 ALTER TABLE `account_user_association` DISABLE KEYS */;
+/*!40000 ALTER TABLE `account_user_association` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `role`
 --
 
-CREATE TABLE IF NOT EXISTS `role` (
+DROP TABLE IF EXISTS `role`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `role` (
   `role` int(11) NOT NULL COMMENT 'Role_ID',
   `role_name` varchar(40) NOT NULL COMMENT 'Role_Name',
   `active` int(11) NOT NULL COMMENT '1=active 0=inactive',
   PRIMARY KEY (`role`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `role`
 --
 
-INSERT INTO `role` (`role`, `role_name`, `active`) VALUES
-(1, 'Super_Admin', 1),
-(2, 'Admin', 1),
-(3, 'User', 1);
-
--- --------------------------------------------------------
+LOCK TABLES `role` WRITE;
+/*!40000 ALTER TABLE `role` DISABLE KEYS */;
+INSERT INTO `role` VALUES (1,'Super_Admin',1),(2,'Admin',1),(3,'User',1);
+/*!40000 ALTER TABLE `role` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `user`
 --
 
-CREATE TABLE IF NOT EXISTS `user` (
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user` (
   `uid` int(11) unsigned NOT NULL AUTO_INCREMENT COMMENT 'ID of user',
   `user_name` varchar(40) NOT NULL COMMENT 'Username',
   `first_name` varchar(40) DEFAULT NULL COMMENT 'First name of user',
@@ -132,41 +134,28 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`uid`),
   UNIQUE KEY `username_UNIQUE` (`user_name`),
   UNIQUE KEY `uid_UNIQUE` (`uid`),
-  KEY `role_idx` (`role`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+  KEY `role_idx` (`role`),
+  CONSTRAINT `role_fk` FOREIGN KEY (`role`) REFERENCES `role` (`role`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`uid`, `user_name`, `first_name`, `last_name`, `password`, `email`, `created_on`, `role`, `is_active`, `created_by`, `updated_by`, `updated_on`) VALUES
-(1, 'pavan', 'pavan', 'pawar', 'password', 'pavanpawar4591@gmail.com', '2016-12-31 18:30:01', 1, b'1', 'sa', 's', '2007-12-31 18:30:01'),
-(2, 'pp', NULL, NULL, '', '', '2017-02-10 18:30:00', 1, b'1', ' ', '', '2017-02-10 18:30:00'),
-(7, 'aaaa', NULL, NULL, '', '', '2017-02-10 18:30:00', 1, b'1', ' ', '', '2017-02-10 18:30:00');
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'pavan','pavan','pawar','password','pavanpawar4591@gmail.com','2016-12-31 13:00:01',1,'','sa','s','2007-12-31 13:00:01'),(2,'pp',NULL,NULL,'','','2017-02-10 13:00:00',1,'',' ','','2017-02-10 13:00:00'),(7,'aaaa',NULL,NULL,'','','2017-02-10 13:00:00',1,'',' ','','2017-02-10 13:00:00'),(8,'admin','Admin','admin','Admin@123','admin@domain.com','2017-06-20 18:30:00',1,'','pavan','pavan','2017-06-20 18:30:00');
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `account_user_association`
---
-ALTER TABLE `account_user_association`
-  ADD CONSTRAINT `account_id` FOREIGN KEY (`account_id`) REFERENCES `account` (`account_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `user_id` FOREIGN KEY (`uid`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `budget`
---
-ALTER TABLE `budget`
-  ADD CONSTRAINT `account_fk` FOREIGN KEY (`account_id`) REFERENCES `account` (`account_id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
---
--- Constraints for table `user`
---
-ALTER TABLE `user`
-  ADD CONSTRAINT `role_fk` FOREIGN KEY (`role`) REFERENCES `role` (`role`) ON DELETE NO ACTION ON UPDATE NO ACTION;
-
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2017-09-18 21:17:35
